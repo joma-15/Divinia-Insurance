@@ -319,7 +319,7 @@
               id="openClientDetails"
               onclick="openClientModal()"
             >
-              Save changes
+              Next Step
             </button>
           </div>
         </div>
@@ -443,7 +443,7 @@
               <!-- Civil Status -->
               <div class="mb-3">
                 <label class="form-label">Civil Status</label>
-                <select class="form-select" id="civil-status" required>
+                <select class="form-select" id="civil-status" name="civil-status" required>
                   <option selected disabled value="">Select status</option>
                   <option>Single</option>
                   <option>Married</option>
@@ -463,7 +463,7 @@
             >
               Cancel
             </button>
-            <button type="submit" form="clientForm" class="btn btn-primary">
+            <button type="button" class="btn btn-primary" onclick="sendData()">
               Next
             </button>
           </div>
@@ -1036,11 +1036,11 @@
 
     <!-- Scripts -->
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="enrollment.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/owl-carousel.js"></script>
     <script src="assets/js/animation.js"></script>
     <script src="assets/js/imagesloaded.js"></script>
     <script src="assets/js/templatemo-custom.js"></script>
+    <script src="enrollment.js"></script>
   </body>
 </html>

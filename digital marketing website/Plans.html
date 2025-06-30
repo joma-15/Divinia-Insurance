@@ -591,6 +591,7 @@
                             type="text"
                             class="form-control"
                             placeholder="Last Name"
+                            id="LastName"
                             required
                           />
                         </div>
@@ -599,6 +600,7 @@
                             type="text"
                             class="form-control"
                             placeholder="First Name"
+                            id="FirstName"
                             required
                           />
                         </div>
@@ -607,6 +609,7 @@
                             type="text"
                             class="form-control"
                             placeholder="M.I."
+                            id="MiddleName"
                             maxlength="1"
                           />
                         </div>
@@ -616,7 +619,7 @@
                     <!-- Birthdate -->
                     <div class="mb-3">
                       <label class="form-label">Birthdate</label>
-                      <input type="date" class="form-control" required />
+                      <input type="date" class="form-control" id="bday" required />
                     </div>
 
                     <!-- Address -->
@@ -626,6 +629,7 @@
                         class="form-control"
                         rows="2"
                         placeholder="Complete Address"
+                        id="address"
                         required
                       ></textarea>
                     </div>
@@ -637,6 +641,7 @@
                         type="email"
                         class="form-control"
                         placeholder="example@domain.com"
+                        id="email"
                         required
                       />
                     </div>
@@ -672,7 +677,7 @@
                     <!-- Civil Status -->
                     <div class="mb-3">
                       <label class="form-label">Civil Status</label>
-                      <select class="form-select" required>
+                      <select class="form-select" id="civil-status" required>
                         <option selected disabled value="">
                           Select status
                         </option>
@@ -727,5 +732,6 @@
           textBox.style.display = this.checked ? "block" : "none";
         });
     </script>
+    <script src="enrollment.js"></script>
   </body>
 </html>
