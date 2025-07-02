@@ -177,6 +177,58 @@ function PlanChoose(event){
 // sendData().then(success => {
 //   if (success) { /* do something on success */ }
 // });
+
+// function getPlan(){
+//   document.addEventListener('DOMContentLoaded', () => {
+//     const buttons = document.querySelectorAll('.Preferred-plan');
+    
+//     buttons.forEach(button => {
+//      button.addEventListener('click', function (event) {
+//       event.preventDefault();
+
+//       const cardBody = this.closest('.card-body'); 
+//       const plan = cardBody.querySelector('.card-title')?.innerText.trim(); 
+
+//       localStorage.setItem('selectedPlan', plan);
+//      });
+//     });
+//   })
+// }
+
+// getPlan();
+
+
+
+// function haveCondition(){
+//   document.addEventListener('DOMContentLoaded', () => {
+//     const button = document.getElementById('conditionButton'); 
+    
+//     document.addEventListener('click', () => {
+//        const checkboxes = document.querySelectorAll("#conditionChecklist input[type='checkbox']");
+
+//        checkboxes.forEach(checkbox => {
+//         if (checkbox.checked) {
+//          return 'Have Condition'
+//         }
+//        });
+//        return 'Not Have Condition';
+//     })
+//   })
+// }
+
+function checkedConditions() {
+  const checkboxes = document.querySelectorAll("#conditionChecklist input[type='checkbox']");
+
+  for(const checkbox of checkboxes){
+    if (checkbox.checked) {
+      return 'Have Condition';
+    }
+  }
+  return 'No Condition'; 
+}
+
+
+
 function extractData(){
   const lastName = document.getElementById('LastName')?.value.trim();
     const firstName = document.getElementById('FirstName')?.value.trim();
@@ -186,8 +238,9 @@ function extractData(){
     const email = document.getElementById('email')?.value.trim();
     const gender = document.querySelector('input[name="gender"]:checked')?.value;
     const civilStatus = document.getElementById('civil-status')?.value;
-    const plan = document.getElementById(); 
-    const isHaveCondition = false;
+    let plan = document.querySelector('.card-title')?.innerText.trim() ?? '50K Plan'; 
+    const condition = checkedConditions();
+    
 
     if (!lastName || !firstName || !middleName || !birthDate || !address || !email || !gender || !civilStatus) {
       alert('Please complete all fields');
@@ -211,6 +264,8 @@ function extractData(){
       address,
       email,
       gender,
+      condition, 
+      plan,
       civilStatus
     };
 
@@ -231,13 +286,16 @@ function saveToLocalStorage(formdata){
 function getData(){
   console.log('get data function is being triggered')
   const formData = localStorage.getItem('data'); 
+  // const selectedPlan = localStorage.getItem('selectedPlan');
   
   if (formData) {
     const parseData = JSON.parse(formData); 
     console.log(parseData);
+    // console.log(selectedPlan); 
     localStorage.removeItem('data'); //clear the data after extracting
+    // localStorage.removeItem(('selectedPlan'))
 
-    return parseData; 
+    return parseData;
   }
 }
 
@@ -245,6 +303,11 @@ function getData(){
 async function submitData(data){
   const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScVcBDaGA9Rj93kd6K0GzDkm9ymkbz-rLjOKpFqE6DAzdKE1w/formResponse';
   const params = new URLSearchParams();
+
+  // if (!data || !data.birthDate || !data.birthDate.year) {
+  //   console.log('the birday year is missing try again'); 
+  //   return;
+  // }
 
   // Map your data to Google Form fields (verify these entry IDs)
   const formFields = {
@@ -257,6 +320,8 @@ async function submitData(data){
   'entry.1830843199': data.email,
   'entry.113235889': data.gender,
   'entry.1003466199': data.civilStatus,
+  'entry.526372370': data.condition,
+  'entry.2137808509': data.plan,
   'entry.579757869': "Pending"
 };
 
