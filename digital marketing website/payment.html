@@ -1,98 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Payment Method</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .payment-info { display: none; }
-  </style>
-</head>
-<body class="bg-light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Method</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .payment-info {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="container py-5">
+      <h2 class="text-center mb-4">Choose Your Payment Method</h2>
 
-  <div class="container py-5">
-    <h2 class="text-center mb-4">Choose Your Payment Method</h2>
+      <!-- Payment Options -->
+      <div class="row justify-content-center mb-4">
+        <div class="col-md-4">
+          <select
+            class="form-select"
+            id="paymentSelect"
+            onchange="showPaymentDetails()"
+          >
+            <option selected disabled>Select a payment method</option>
+            <option value="gcash">GCash</option>
+            <option value="bpi">BPI</option>
+            <option value="bdo">BDO</option>
+          </select>
+        </div>
+      </div>
 
-    <!-- Payment Options -->
-    <div class="row justify-content-center mb-4">
-      <div class="col-md-4">
-        <select class="form-select" id="paymentSelect" onchange="showPaymentDetails()">
-          <option selected disabled>Select a payment method</option>
-          <option value="gcash">GCash</option>
-          <option value="bpi">BPI</option>
-          <option value="bdo">BDO</option>
-        </select>
+      <!-- Payment Info -->
+      <div id="gcash" class="payment-info card p-4 mb-4">
+        <h5>Send to GCash</h5>
+        <p><strong>Name:</strong> Jhon Marcel Adelantar</p>
+        <p>
+          <strong>Number:</strong> 09XXXXXXXXX
+          <button
+            onclick="copyText('09XXXXXXXXX')"
+            class="btn btn-sm btn-outline-primary"
+          >
+            Copy
+          </button>
+        </p>
+      </div>
+
+      <div id="bpi" class="payment-info card p-4 mb-4">
+        <h5>Send to BPI</h5>
+        <p><strong>Name:</strong> Jhon Marcel Adelantar</p>
+        <p>
+          <strong>Account Number:</strong> 1234-5678-9012
+          <button
+            onclick="copyText('1234-5678-9012')"
+            class="btn btn-sm btn-outline-primary"
+          >
+            Copy
+          </button>
+        </p>
+      </div>
+
+      <div id="bdo" class="payment-info card p-4 mb-4">
+        <h5>Send to BDO</h5>
+        <p><strong>Name:</strong> Jhon Marcel Adelantar</p>
+        <p>
+          <strong>Account Number:</strong> 9876-5432-1000
+          <button
+            onclick="copyText('9876-5432-1000')"
+            class="btn btn-sm btn-outline-primary"
+          >
+            Copy
+          </button>
+        </p>
+      </div>
+
+      <!-- Receipt Upload Form -->
+      <div class="card p-4">
+        <h5 class="mb-3">Upload Your Payment Receipt</h5>
+        <form onsubmit="submitOnClick(event)">
+          <div class="mb-3">
+            <label for="amount" class="form-label">Amount Sent (₱):</label>
+            <input
+              type="number"
+              class="form-control"
+              id="amount"
+              name="amount"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="reference" class="form-label">Reference Number:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="reference"
+              name="reference"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="screenshot" class="form-label"
+              >Upload Screenshot:</label
+            >
+            <input
+              type="file"
+              class="form-control"
+              id="screenshot"
+              name="screenshot"
+              accept="image/*"
+              required
+            />
+          </div>
+          <button class="btn btn-success" type="submit">
+            Submit Receipt
+          </button>
+        </form>
       </div>
     </div>
 
-    <!-- Payment Info -->
-    <div id="gcash" class="payment-info card p-4 mb-4">
-      <h5>Send to GCash</h5>
-      <p><strong>Name:</strong> Jhon Marcel Adelantar</p>
-      <p><strong>Number:</strong> 09XXXXXXXXX <button onclick="copyText('09XXXXXXXXX')" class="btn btn-sm btn-outline-primary">Copy</button></p>
-    </div>
+    <script>
+      function showPaymentDetails() {
+        const methods = document.querySelectorAll(".payment-info");
+        methods.forEach((m) => (m.style.display = "none"));
 
-    <div id="bpi" class="payment-info card p-4 mb-4">
-      <h5>Send to BPI</h5>
-      <p><strong>Name:</strong> Jhon Marcel Adelantar</p>
-      <p><strong>Account Number:</strong> 1234-5678-9012 <button onclick="copyText('1234-5678-9012')" class="btn btn-sm btn-outline-primary">Copy</button></p>
-    </div>
-
-    <div id="bdo" class="payment-info card p-4 mb-4">
-      <h5>Send to BDO</h5>
-      <p><strong>Name:</strong> Jhon Marcel Adelantar</p>
-      <p><strong>Account Number:</strong> 9876-5432-1000 <button onclick="copyText('9876-5432-1000')" class="btn btn-sm btn-outline-primary">Copy</button></p>
-    </div>
-
-    <!-- Receipt Upload Form -->
-    <div class="card p-4">
-      <h5 class="mb-3">Upload Your Payment Receipt</h5>
-      <form action="/submit-receipt" method="POST" enctype="multipart/form-data">
-        <div class="mb-3">
-          <label for="amount" class="form-label">Amount Sent (₱):</label>
-          <input type="number" class="form-control" id="amount" name="amount" required>
-        </div>
-        <div class="mb-3">
-          <label for="reference" class="form-label">Reference Number:</label>
-          <input type="text" class="form-control" id="reference" name="reference" required>
-        </div>
-        <div class="mb-3">
-          <label for="screenshot" class="form-label">Upload Screenshot:</label>
-          <input type="file" class="form-control" id="screenshot" name="screenshot" accept="image/*" required>
-        </div>
-        <button type="submit" class="btn btn-success">Submit Receipt</button>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    function showPaymentDetails() {
-      const methods = document.querySelectorAll(".payment-info");
-      methods.forEach(m => m.style.display = "none");
-
-      const selected = document.getElementById("paymentSelect").value;
-      document.getElementById(selected).style.display = "block";
-    }
-
-    function copyText(text) {
-      navigator.clipboard.writeText(text);
-      alert("Copied to clipboard!");
-    }
-
-    async function sendEmail(){
-      const emailAddress = "adelantarjhonmarcel@gmail.com"; 
-
-      try {
-        //fetch data from the email js api 
-        const data = fetch('email/js'); 
-        console.log('the data has been fetch successfully', data); 
-        
-      } catch (error) {
-        console.log('An errored has been occured')
+        const selected = document.getElementById("paymentSelect").value;
+        document.getElementById(selected).style.display = "block";
       }
-    }
-  </script>
 
-</body>
+      function copyText(text) {
+        navigator.clipboard.writeText(text);
+        alert("Copied to clipboard!");
+      }
+
+      async function sendEmail() {
+        const emailAddress = "adelantarjhonmarcel@gmail.com";
+
+        try {
+          //fetch data from the email js api
+          const data = fetch("email/js");
+          console.log("the data has been fetch successfully", data);
+        } catch (error) {
+          console.log("An errored has been occured");
+        }
+      }
+    </script>
+    <script src="enrollment.js"></script>
+  </body>
 </html>
