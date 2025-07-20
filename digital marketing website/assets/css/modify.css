@@ -1,17 +1,45 @@
-.quoteText{
-  margin-bottom: 100px;
+/* ===== Base Styles with Silver/Gold Theme ===== */
+body {
+  background-color: #f8f9fa;
+  color: #333;
 }
+
+/* ===== Quote Section ===== */
+.quoteText {
+  margin-bottom: 100px;
+  color: #333;
+}
+
+/* ===== Lists ===== */
 ul {
   padding-left: 10px;
   margin: 0;
-  color: black;
+  color: #333;
 }
-.benefits{
+
+.benefits {
   padding-left: 20px;
 }
-.benefits p{
+
+.benefits p {
   font-size: 30px;
   line-height: 1.51;
+  color: #555;
+  position: relative;
+  padding-left: 40px;
+}
+
+.benefits p::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25px;
+  height: 25px;
+  background-color: #d4af37;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
 }
 
 /* Responsive styles for tablets and smaller screens */
@@ -19,7 +47,12 @@ ul {
   .benefits p {
     font-size: 0.95rem;
     line-height: 2;
-    padding-left: 18px;
+    padding-left: 30px;
+  }
+
+  .benefits p::before {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -27,49 +60,55 @@ ul {
   .benefits p {
     font-size: 0.9rem;
     line-height: 2.2;
-    padding-left: 16px;
+    padding-left: 25px;
+  }
+
+  .benefits p::before {
+    width: 18px;
+    height: 18px;
   }
 }
 
-@media (max-width: 992px){
-  .about-image{
+/* ===== Responsive Layout Adjustments ===== */
+@media (max-width: 992px) {
+  .about-image {
     display: none;
-  } 
-}
-@media (max-width: 992px){
-  .contact-message{
+  }
+
+  .contact-message {
     width: 250vh;
   }
-}
-@media (max-width: 992px) {
-  .section-heading{
+
+  .section-heading {
     margin-top: 60px;
   }
-  
 }
 
-.image-bg{
+.image-bg {
   opacity: 0.5;
 }
 
-/* Services Section Styling */
+/* ===== Services Section - Professional Silver/Gold Theme ===== */
 .our-services {
   padding: 80px 0;
-  background-color: #f7f7f7;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e6e8eb 100%);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .service-card {
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   background: white;
+  border-top: 3px solid #d4af37;
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 .card-img-container {
@@ -78,6 +117,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f8f9fa;
 }
 
 .service-card .card-img-top {
@@ -99,6 +139,18 @@ ul {
   font-weight: 600;
   margin-bottom: 15px;
   font-size: 1.2rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.service-card .card-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #d4af37;
 }
 
 .service-card .card-text {
@@ -111,36 +163,24 @@ ul {
 
 .service-card .btn {
   align-self: flex-start;
-  background-color: #4f8ff7;
+  background: linear-gradient(to right, #d4af37, #f9e076);
+  color: #333;
   border: none;
   padding: 8px 20px;
   font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 4px;
   transition: all 0.3s;
+  box-shadow: 0 2px 5px rgba(212, 175, 55, 0.3);
 }
 
 .service-card .btn:hover {
-  background-color: #3a7be0;
+  background: linear-gradient(to right, #c9a42d, #f0d86b);
   transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(212, 175, 55, 0.4);
 }
 
-/* Responsive adjustments */
-@media (max-width: 991px) {
-  .card-img-container {
-    height: 130px;
-  }
-}
-
-@media (max-width: 767px) {
-  .service-card {
-    margin-bottom: 30px;
-  }
-  
-  .card-img-container {
-    height: 180px;
-  }
-}
-
-/* Plans Heading Styling */
+/* ===== Plans Heading ===== */
 .plans {
   color: #2a2a2a;
   font-weight: 700;
@@ -148,40 +188,21 @@ ul {
   margin-bottom: 30px;
   position: relative;
   display: inline-block;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 
 .plans:after {
-  content: '';
+  content: "";
   position: absolute;
-  width: 50px;
+  width: 60px;
   height: 3px;
-  background-color: #4f8ff7;
+  background: linear-gradient(to right, #d4af37, #c0c0c0);
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
 }
 
-/* Additional Spacing */
-.mt-5 {
-  margin-top: 3rem !important;
-}
-
-.mb-5 {
-  margin-bottom: 3rem !important;
-}
-
-/* Center alignment for text */
-.text-center {
-  text-align: center !important;
-}
-
-/* Services Section Styling */
-.our-services {
-  padding: 80px 0;
-  background-color: #f8f9fa;
-}
-
+/* ===== Service Radio Form ===== */
 .service-image-container {
   padding: 20px;
   text-align: center;
@@ -190,15 +211,17 @@ ul {
 .service-image-container img {
   max-width: 100%;
   height: auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .service-radio-form {
   background: white;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .service-radio-form h3 {
@@ -206,16 +229,17 @@ ul {
   font-weight: 600;
   position: relative;
   padding-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .service-radio-form h3:after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;
   width: 50px;
   height: 3px;
-  background: #4b8ef1;
+  background: linear-gradient(to right, #d4af37, #c0c0c0);
 }
 
 .radio-options .form-check {
@@ -224,16 +248,16 @@ ul {
 }
 
 .radio-options .form-check-input {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   margin-left: -35px;
   margin-top: 5px;
-  border: 2px solid #4b8ef1;
+  border: 2px solid #d4af37;
 }
 
 .radio-options .form-check-input:checked {
-  background-color: #4b8ef1;
-  border-color: #4b8ef1;
+  background-color: #d4af37;
+  border-color: #d4af37;
 }
 
 .radio-options .form-check-label {
@@ -252,29 +276,74 @@ ul {
   display: block;
   font-size: 14px;
   color: #6c757d;
-  margin-top: 3px;
+  margin-top: 5px;
 }
 
-/* Specific button style for services section only */
 .services-next-button {
   display: inline-block;
-  background-color: #4b8ef1;
-  color: #fff;
+  background: linear-gradient(to right, #d4af37, #f9e076);
+  color: #333;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   padding: 12px 25px;
-  border-radius: 5px;
+  border-radius: 50px;
   text-transform: uppercase;
   transition: all 0.3s;
   border: none;
   outline: none;
   cursor: pointer;
+  box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3);
 }
 
 .services-next-button:hover {
-  background-color: #3a7bd5;
-  color: #fff;
+  background: linear-gradient(to right, #c9a42d, #f0d86b);
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+  color: #222;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 991px) {
+  .card-img-container {
+    height: 130px;
+  }
+}
+
+@media (max-width: 767px) {
+  .service-card {
+    margin-bottom: 30px;
+  }
+
+  .card-img-container {
+    height: 180px;
+  }
+}
+
+/* ===== Utility Classes ===== */
+.mt-5 {
+  margin-top: 3rem !important;
+}
+
+.mb-5 {
+  margin-bottom: 3rem !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.send-button {
+  background: linear-gradient(
+    135deg,
+    #d4af37 0%,
+    #f9e076 50%,
+    #d4af37 100%
+  ) !important;
+  color: #333 !important;
+  border: none !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+  transition: all 0.3s !important;
 }
