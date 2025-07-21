@@ -256,11 +256,11 @@ body {
 
 .section-heading h2 em {
   font-style: normal;
-  color: #03a4ed;
+  color: #d4af37;
 }
 
 .section-heading h2 span {
-  color: #08ee68;
+  color: #555;
 }
 
 .main-blue-button a {
@@ -284,7 +284,7 @@ body {
   background-color: #033850;
   font-size: 15px;
   font-weight: 400;
-  color: #fff;
+  color:   rgba(212, 175, 55, 0.4),;
   text-transform: capitalize;
   padding: 12px 25px;
   border-radius: 23px;
@@ -325,11 +325,11 @@ header
 }
 
 .background-header .main-nav .nav li:hover a {
-  color: #079b27 !important;
+  color: #d4af37 !important;
 }
 
 .background-header .nav li a.active {
-  color: #079b27 !important;
+  color: #d4af37 !important;
 }
 
 .header-area {
@@ -447,12 +447,12 @@ header
 
 .header-area .main-nav .nav li:hover a,
 .header-area .main-nav .nav li a.active {
-  color: #079b27 !important;
+  color: #d4af37 !important;
 }
 
 .background-header .main-nav .nav li:hover a,
 .background-header .main-nav .nav li a.active {
-  color: #079b27 !important;
+  color: #d4af37 !important;
   opacity: 1;
 }
 
@@ -952,12 +952,12 @@ Banner Style
 }
 
 .main-banner .left-content h2 em {
-  color: #03a4ed;
+  color: #d4af37;
   font-style: normal;
 }
 
 .main-banner .left-content h2 span {
-  color: #079b27;
+  color: #555;
 }
 
 .main-banner .left-content p {
