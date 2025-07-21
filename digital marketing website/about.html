@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divinia Insurance Services (DIS)</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        /* Sections */
+        .section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
+            font-size: 1.8rem;
+        }
+        
+        /* About Section */
+        .about-text {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Credentials */
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--secondary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-year {
+            position: absolute;
+            left: -50px;
+            top: 0;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-content {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .timeline-content ul {
+            list-style-position: inside;
+            margin-top: 0.5rem;
+        }
+        
+        .timeline-content li {
+            margin-bottom: 0.3rem;
+        }
+        
+        /* Mission/Vision */
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .mission, .vision {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+        
+        .mission {
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .vision {
+            border-top: 4px solid var(--accent);
+        }
+        
+        .mission h3, .vision h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 6px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-top: 3px solid var(--secondary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer .tagline {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: var(--light);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .timeline {
+                padding-left: 30px;
+            }
+            
+            .timeline-year {
+                left: -30px;
+                padding: 0.3rem 0.6rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Divinia Insurance Services</h1>
+            <p class="tagline">One Place. Endless Possibilities!</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="section">
+            <h2 class="section-title">About DIS</h2>
+            <p class="about-text">
+                At Divinia Insurance Services, (DIS All Care Marketing) we provide all the services you need in one place. Whether it's insurance, business, career path, lifestyle and wellness. Our expertise is here to make things easier, faster, and more reliable for you.
+            </p>
+            <p class="about-text">
+                We simplify your life by providing a complete range of services — from insurance of Life, Non-Life, Health Maintenance Organization (HMO) from wellness and home personal care essentials and others are like admin support, and more. One place. Endless possibilities.
+            </p>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Credentials</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2005</div>
+                    <div class="timeline-content">
+                        <p>Licensed in AXA Phils Life Insurance Industry more than 20 years of Experience in Life Insurance and still continuously learning products knowledge and innovations</p>
+                        <ul>
+                            <li>2 Local Tours (Palawan and Subic)</li>
+                            <li>4 International Tours (Asian Cruise Malaysia and Singapore, Vietnam and Thailand)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2006</div>
+                    <div class="timeline-content">
+                        <p>Certified Licensed of Non-Life caters 7 Top Non-Life in the Industry</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2007-2010</div>
+                    <div class="timeline-content">
+                        <p>Pioneers in different Marketing Company</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2008</div>
+                    <div class="timeline-content">
+                        <p>Accredited in Different HMO Industry up to Present cater Top 10 HMO in the Industry</p>
+                        <ul>
+                            <li>Maintains Top 5 HMO Achiever</li>
+                            <li>3 International Tour – Asian Cruise Japan and Taiwan, Thailand</li>
+                            <li>1 Local Baguio</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2010-2022</div>
+                    <div class="timeline-content">
+                        <p>FKC International Pioneering – Diamond Star Philippines</p>
+                        <ul>
+                            <li>International Tour 2 Hongkong Tour, Vietnam, Thailand, 2 Singapore, 2 Indonesia, 2 Malaysia</li>
+                            <li>Local Tour 3 Palawan, 2 Cebu, Ilocos Pagudpud, 2 Baguio, Surigao</li>
+                            <li>Car Achiever Hyundai Accent 2013 Model</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2017</div>
+                    <div class="timeline-content">
+                        <p>Started DIS All Care Marketing office</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2018-2020</div>
+                    <div class="timeline-content">
+                        <p>Medocare Health Sys Inc. Branch Manager HMO Industry</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2020-2023</div>
+                    <div class="timeline-content">
+                        <p>GHSI HMO Area Operation Head in South Luzon Area, Lipa City, Batangas, Calamba, San Pablo and Cavite Area</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-content">
+                        <p>Marketing of Franchise Business – Elite Business Partners</p>
+                        <ul>
+                            <li>Consistent 1 year Awardie Top of the Company</li>
+                            <li>Local Tour in Subic Bay Exclusive Resort, Boracay and Palawan</li>
+                            <li>International Tour – South Korea</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2023-2024</div>
+                    <div class="timeline-content">
+                        <p>Area Marketing Manager of SM Shopping Cards Marketing Retails Nationwide</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2023-2025</div>
+                    <div class="timeline-content">
+                        <p>PRO 4 – Life Vantage Achiever in one International Direct Selling Company USA Salt Lake Utah</p>
+                        <ul>
+                            <li>International USA, Salt Lake Utah, LA, New York, Dominican Republic, Japan and Vietnam</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <p>WAVEBiz Online Shop – Depot Owner Pioneer in Batangas</p>
+                        <p>Presently Owner of SMARTCARE Health Plan Program – Makes Plan and Coverage - Marketing Arm Philhealth Care Inc.</p>
+                        <ul>
+                            <li>Existing 1000 clients Nationwide</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-content">
+                        <p>Group Sales Manager - ICare HealthCare</p>
+                        <p>Manulife Philippines Unit Head Associate – Rookie Awardie</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="mission-vision">
+                <div class="mission">
+                    <h3>Mission Statement</h3>
+                    <p>To create a business where every individual lives with purpose, fulfilment, and direction—empowered to make a meaningful impact in their own lives and others'.</p>
+                </div>
+                <div class="vision">
+                    <h3>Vision Statement</h3>
+                    <p>To inspire and guide individuals toward living with clarity, intention, and purpose—unlocking their full potential and transforming their lives.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Services Offered</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Life Insurance</h3>
+                    <p>Comprehensive life insurance solutions to protect your family's future.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Non-Life Insurance</h3>
+                    <p>Protection for your properties, vehicles, and other valuable assets.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Health Maintenance (HMO)</h3>
+                    <p>Top-tier healthcare plans from leading HMO providers.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Wellness & Home Care</h3>
+                    <p>Essential services for your health and home care needs.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Business Support</h3>
+                    <p>Administrative and marketing support for your business growth.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Career Development</h3>
+                    <p>Pathways and opportunities for professional growth.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <h2>DIS All Care Marketing</h2>
+            <p class="tagline">One Place. Endless Possibilities!</p>
+            <p>&copy; 2024 Divinia Insurance Services. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
