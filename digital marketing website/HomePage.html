@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Divinia Insurance Company</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <img
+        src="assets/images/dis logo.png"
+        alt="digital marketing logo"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Navbar -->
+    <nav
+      class="navbar fixed-top d-flex justify-content-between align-items-center"
+    >
+      <button id="openDrawer" class="drawer-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="text-end">
+        <img src="assets/images/dis.png" alt="company logo" />
+      </div>
+    </nav>
+
+    <!-- Drawer -->
+    <aside class="drawer" id="drawer">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="fs-5 text-primary">Navigation</h2>
+        <button id="closeDrawer" class="fs-3">&times;</button>
+      </div>
+      <nav class="drawer-nav">
+        <a href="#home"><i class="fas fa-home"></i> Home</a>
+        <a href="#services"><i class="fas fa-cogs"></i> Services</a>
+        <a href=""><i class="fas fa-tools"></i> Tools</a>
+        <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+      </nav>
+    </aside>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div>
+        <div class="hero-text">
+          <h1>Welcome To DIS</h1>
+          <p>Ang HealthCare Plan Para sa Masa at Lipunan</p>
+        </div>
+        <img src="assets/images/Banner-right-image.png" alt="company image" />
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <div class="row g-4">
+          <!-- About Us Card -->
+          <div class="col-lg-6">
+            <div class="card-custom h-100">
+              <h2 class="section-title">About Us</h2>
+              <p class="about-text">
+                At Divinia Insurance Services (DIS All Care Marketing), we
+                provide all the services you need in one place. Whether it's
+                insurance, business, career path, lifestyle and wellness — our
+                expertise is here to make things easier, faster, and more
+                reliable for you. We simplify your life by offering a complete
+                range of services — from Life, Non-Life, and HMO insurance to
+                wellness, home essentials, admin support, and more. One place.
+                Endless possibilities.
+              </p>
+              <a href="about.html" class="btn btn-outline-primary mt-3"
+                >See More</a
+              >
+            </div>
+          </div>
+
+          <!-- Vision & Mission stacked -->
+          <div class="col-lg-6">
+            <div class="mb-4">
+              <div class="card-custom h-100">
+                <h3 class="section-title">Vision</h3>
+                <p class="about-text">
+                  To inspire and guide individuals toward living with clarity, intention, and purpose—unlocking their full potential and transforming their lives.
+                </p>
+              </div>
+            </div>
+            <div>
+              <div class="card-custom h-100">
+                <h3 class="section-title">Mission</h3>
+                <p class="about-text">
+                  To create a business where every individual lives with purpose, fulfilment, and direction—empowered to make a meaningful impact in their own lives and others'.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+      <div class="container">
+        <div class="card-custom">
+          <h2 class="section-title text-center">Contact Us</h2>
+          <div class="row mt-4">
+            <div class="col-md-6 mb-4">
+              <h5><i class="fas fa-map-marker-alt"></i> Address</h5>
+              <p>123 Main Street, Manila, Philippines</p>
+              <h5><i class="fas fa-phone"></i> Phone</h5>
+              <p>+63 912 345 6789</p>
+              <h5><i class="fas fa-envelope"></i> Email</h5>
+              <p>info@diviniainsurance.com</p>
+            </div>
+            <div class="col-md-6">
+              <form>
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Your Email"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <textarea
+                    class="form-control"
+                    rows="4"
+                    placeholder="Your Message"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Nav (mobile only) -->
+    <div class="bottom-nav">
+      <a href="#home"><i class="fas fa-home"></i>Home</a>
+      <a href="#services"><i class="fas fa-cogs"></i>Services</a>
+      <a href="#about"><i class="fas fa-info-circle"></i>About</a>
+      <a href="#contact"><i class="fas fa-envelope"></i>Contact</a>
+    </div>
+
+    <!-- Drawer toggle scripts -->
+    <script src="assets/js/homepage.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

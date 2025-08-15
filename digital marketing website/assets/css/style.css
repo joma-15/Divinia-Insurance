@@ -1,0 +1,393 @@
+/* Base */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding-bottom: 60px; /* space for bottom nav */
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.5rem;
+  z-index: 1100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar img {
+  height: 50px;
+  width: 60px;
+  object-fit: contain;
+}
+
+/* Drawer Styling */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 280px;
+  height: 100%;
+  background: white;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 1200;
+  overflow-y: auto;
+}
+
+.drawer.open {
+  left: 0;
+}
+
+.drawer-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: padding-left 0.2s, background-color 0.2s;
+}
+
+.drawer-nav a:hover {
+  background: #f0f0f0;
+  padding-left: 15px;
+}
+
+/* Drawer Toggle Button */
+.drawer-toggle {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #007aff;
+  cursor: pointer;
+}
+
+/* Close Drawer Button */
+#closeDrawer {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 6rem 0 4rem;
+}
+
+.hero-section > div {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: nowrap;
+  padding: 0 1rem;
+  min-height: 400px;
+}
+
+.hero-section img {
+  max-width: 480px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 122, 255, 0.25);
+  object-fit: contain;
+  flex-shrink: 0;
+  margin: 0; /* Reset margin */
+}
+
+.hero-text {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0; /* Reset margin */
+}
+
+.hero-text h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 3.8rem;
+  color: #007aff;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.1;
+  text-shadow: 1px 1px 5px rgba(0, 122, 255, 0.35);
+}
+
+.hero-text p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #555;
+  max-width: 420px;
+  line-height: 1.5;
+  margin: 0;
+  padding-left: 4px;
+  border-left: 4px solid #007aff;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+  background-color: #f0f8ff;
+  border-radius: 4px;
+}
+
+/* Bottom Nav for mobile */
+.bottom-nav {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  /* Hide drawer and toggle button on small screens */
+  .drawer {
+    display: none !important;
+  }
+  #openDrawer {
+    display: none !important;
+  }
+
+  /* Stack hero content vertically with smaller gap */
+  .hero-section > div {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* align items at the start */
+    gap: 1rem; /* very small horizontal gap between text and image */
+    padding: 0 1rem;
+    min-height: 400px;
+    flex-wrap: nowrap; /* keep text and image side by side */
+  }
+
+  .hero-text {
+    flex: 0 0 auto; /* don't grow or shrink */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem; /* very small vertical gap between title and tagline */
+    margin: 0;
+  }
+
+  .hero-text h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 3.8rem;
+    color: #007aff;
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 1px 1px 5px rgba(0, 122, 255, 0.35);
+  }
+
+  .hero-text p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #555;
+    margin: 0;
+    padding-left: 4px;
+    border-left: 4px solid #007aff;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+    background-color: #f0f8ff;
+    border-radius: 4px;
+    max-width: 420px;
+  }
+
+  .hero-section img {
+    max-width: 320px; /* slightly smaller for tighter layout */
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 122, 255, 0.25);
+    object-fit: contain;
+    flex-shrink: 0; /* don't shrink */
+    margin: 0; /* remove default margin */
+  }
+
+  /* Responsive for small screens */
+  @media (max-width: 991px) {
+    .hero-section > div {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: auto;
+      gap: 0.5rem; /* small vertical gap */
+    }
+    .hero-text {
+      max-width: 100%;
+      margin-bottom: 0;
+    }
+    .hero-text h1 {
+      font-size: 2.8rem;
+    }
+    .hero-text p {
+      font-size: 1.2rem;
+      padding-left: 0;
+      border-left: none;
+      background-color: transparent;
+      box-shadow: none;
+      max-width: 100%;
+    }
+    .hero-section img {
+      max-width: 80%;
+      margin: 0;
+      box-shadow: 0 6px 20px rgba(0, 122, 255, 0.15);
+    }
+  }
+
+  /* Bottom Navigation Visible */
+  .bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-top: 1px solid #ddd;
+    padding: 0.5rem 0;
+    z-index: 2000;
+  }
+
+  .bottom-nav a {
+    text-align: center;
+    color: #555;
+    font-size: 0.85rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    font-weight: 500;
+  }
+
+  .bottom-nav a:hover {
+    color: #0d6efd; /* Bootstrap primary */
+  }
+
+  .bottom-nav i {
+    font-size: 1.2rem;
+    display: block;
+  }
+}
+
+/* Drawer toggle visible on large screens */
+@media (min-width: 992px) {
+  #openDrawer {
+    display: inline-block;
+    color: #007aff;
+  }
+}
+
+
+/*preload design*/
+/* Preloader full screen */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.8s ease; /* smooth fade-out */
+    }
+
+    /* Logo size & animation */
+    #preloader img {
+      max-width: 250px;
+      width: 100%;
+      height: auto;
+      animation: fadeIn 1.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Hide after fade */
+    #preloader.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Minimal enhancements, no conflict with existing CSS */
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f5f7fa;
+      }
+      .section-padding {
+        padding: 4rem 2rem;
+      }
+      .card-custom {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        padding: 2rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .card-custom:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      }
+      .section-title {
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #004080;
+      }
+      .about-text {
+        font-size: 1.1rem;
+        color: #555;
+        line-height: 1.6;
+      }
+      .contact-info i {
+        color: #0066cc;
+        margin-right: 10px;
+      }
+      .form-control {
+        border-radius: 8px;
+      }
+      .btn-primary {
+        border-radius: 8px;
+        background: #0066cc;
+        border: none;
+      }
+      .btn-primary:hover {
+        background: #004d99;
+      }
+
+      .card-custom {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        padding: 2rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .card-custom:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      }
+      .section-title {
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #004080;
+      }
+      .about-text {
+        font-size: 1.05rem;
+        color: #555;
+        line-height: 1.6;
+      }
