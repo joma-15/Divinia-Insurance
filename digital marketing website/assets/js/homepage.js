@@ -15,7 +15,7 @@ function handlePreloader(){
     window.addEventListener("load", function(){
       setTimeout(function(){
         document.getElementById("preloader").classList.add("fade-out");
-      }, 2000);
+      }, 1000);
     });
 }
 handlePreloader();
