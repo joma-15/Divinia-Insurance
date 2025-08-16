@@ -2,934 +2,247 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Divinia Insurance Company</title>
+
+    <!-- Bootstrap CSS -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
 
-    <title>SmartCare</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css" />
-    <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css" />
-    <link rel="stylesheet" href="assets/css/animated.css" />
-    <link rel="stylesheet" href="assets/css/owl.css" />
-    <link rel="stylesheet" href="assets/css/modify.css">
-    <script src="enrollment.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-
   <body>
-    <!-- ***** Preloader Start ***** -->
-    <div id="js-preloader" class="js-preloader">
-      <div class="preloader-inner">
-        <span class="dot"></span>
-        <div class="dots">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
+    <!-- Preloader -->
+    <div id="preloader">
+      <img
+        src="assets/images/dis logo.png"
+        alt="digital marketing logo"
+        loading="lazy"
+      />
     </div>
-    <!-- ***** Preloader End ***** -->
 
-    <!-- ***** Header Area Start ***** -->
-    <header
-      class="header-area header-sticky wow slideInDown"
-      data-wow-duration="0.75s"
-      data-wow-delay="0s"
+    <!-- Navbar -->
+    <nav
+      class="navbar fixed-top d-flex justify-content-between align-items-center"
     >
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <nav class="main-nav">
-              <!-- ***** Logo Start ***** -->
-              <a href="index.html" class="logo">
-                <h4>smart<span>Care</span></h4>
-              </a>
-              <!-- ***** Logo End ***** -->
-              <!-- ***** Menu Start ***** -->
-              <ul class="nav">
-                <li class="scroll-to-section">
-                  <a href="#top" class="active">Home</a>
-                </li>
-                <li class="scroll-to-section"><a href="#about">Benefits</a></li>
-                <li class="scroll-to-section">
-                  <a href="#services">Shop</a>
-                </li>
-                <li class="scroll-to-section">
-                  <a href="#portfolio">Tools</a>
-                </li>
-                <li class="scroll-to-section">
-                  <a href="about.html">About us</a>
-                </li>
-
-                <li class="scroll-to-section">
-                  <div class="main-blue-button">
-                    <a href="#contact">Message us</a>
-                  </div>
-                </li>
-              </ul>
-              <a class="menu-trigger">
-                <span>Menu</span>
-              </a>
-              <!-- ***** Menu End ***** -->
-            </nav>
-          </div>
-        </div>
+      <button id="openDrawer" class="drawer-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="text-end">
+        <img src="assets/images/dis.png" alt="company logo" />
       </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
+    </nav>
 
-    <div
-      class="main-banner wow fadeIn"
-      id="top"
-      data-wow-duration="1s"
-      data-wow-delay="0.5s"
-    >
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="row">
-              <div class="col-lg-6 align-self-center">
-                <div
-                  class="left-content header-text wow fadeInLeft"
-                  data-wow-duration="1s"
-                  data-wow-delay="1s"
-                >
-                  <div class="quoteText">
-                    <h6>Welcome to SmartCare</h6>
-                    <h2>
-                      Ang HealthCare Plan para sa <em>Masa</em> at
-                      <span>Lipunan</span>
-                    </h2>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div
-                  class="right-image wow fadeInRight"
-                  data-wow-duration="1s"
-                  data-wow-delay="0.5s"
-                >
-                  <img
-                    src="assets/images/Banner-right-image.png"
-                    alt="team meeting"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- Drawer -->
+    <aside class="drawer" id="drawer">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="fs-5 text-primary">Navigation</h2>
+        <button id="closeDrawer" class="fs-3">&times;</button>
       </div>
-    </div>
-    <div>
+      <nav class="drawer-nav">
+        <a href="#home"><i class="fas fa-home"></i> Home</a>
+        <a
+          href="#services"
+          data-bs-toggle="modal"
+          data-bs-target="#insuranceModal"
+          ><i class="fas fa-cogs"></i> Services</a
+        >
+        <a
+          data-bs-toggle="modal"
+          data-bs-target="#insuranceModal"
+          ><i class="fas fa-tools"></i> Tools</a
+        >
+        <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+      </nav>
+    </aside>
 
-    <div id="about" class="about-us section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div
-              class="left-image wow fadeIn"
-              data-wow-duration="1s"
-              data-wow-delay="0.2s"
-            >
-              <img
-                src="assets/images/about-left-image.png"
-                alt="person graphic"
-                class="about-image"
-              />
-            </div>
-          </div>
-          <div class="col-lg-8 align-self-center">
-            <div class="services">
-              <div class="row">
-                <div
-                  class="item wow fadeIn"
-                  data-wow-duration="1s"
-                  data-wow-delay="0.7s"
-                >
-                  <div class="benefits">
-                    <p>• 50K ANNUAL BENEFITS LIMIT</p>
-                    <p>• WARD ROOM</p>
-                    <p>
-                      • INPATIENT | OUTPATIENT | EMERGENCY | MENTAL HEALTH CARE
-                    </p>
-                    <p>• OP UNLI CONSULTATION | OP CLINIC BASED</p>
-                    <p>• APE (ANNUAL PHYSICAL EXAM)</p>
-                    <p>• 20% PRE EXISTING COVERAGE</p>
-                    <p>• 1,800 AFFILIATED HOSPITALS & CLINICS</p>
-                    <p>• 49,000 AFFILIATED PHYSICIANS</p>
-                    <p>• HEYPHIL APP | NFC | MEMBERS GATEWAY</p>
-                    <p>• WELLNESS BUDDIES</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div>
+        <div class="hero-text">
+          <h1>Welcome To DIS</h1>
+          <p>"Simplifying Life, Securing Your Future."</p>
         </div>
+        <img src="assets/images/Banner-right-image.png" alt="company image" />
       </div>
-    </div>
+    </section>
 
-    <div id="services" class="our-services section">
+    <!-- About Section -->
+    <!-- About Section -->
+    <section id="about" class="section-padding">
       <div class="container">
-        <div class="row align-items-center">
-          <!-- Left Column - Image -->
+        <div class="row g-4">
+          <!-- About Us Card -->
           <div class="col-lg-6">
-            <div
-              class="service-image-container wow fadeInLeft"
-              data-wow-duration="1s"
-              data-wow-delay="0.3s"
-            >
-              <img
-                src="assets/images/about-left-image.png"
-                alt="SmartCare Services"
-                class="img-fluid rounded"
-                style="max-width: 80%"
-              />
+            <div class="card-custom h-100">
+              <h2 class="section-title">About Us</h2>
+              <p class="about-text">
+                At Divinia Insurance Services (DIS All Care Marketing), we
+                provide all the services you need in one place. Whether it's
+                insurance, business, career path, lifestyle and wellness — our
+                expertise is here to make things easier, faster, and more
+                reliable for you. We simplify your life by offering a complete
+                range of services — from Life, Non-Life, and HMO insurance to
+                wellness, home essentials, admin support, and more. One place.
+                Endless possibilities.
+              </p>
+              <a href="about.html" class="btn btn-outline-primary mt-3"
+                >See More</a
+              >
             </div>
           </div>
 
-          <!-- Right Column - Radio Form -->
+          <!-- Vision & Mission stacked -->
           <div class="col-lg-6">
-            <div
-              class="service-radio-form wow fadeInRight"
-              data-wow-duration="1s"
-              data-wow-delay="0.3s"
-            >
-              <h3 class="mb-4">Choose Your Plan</h3>
-
-              <div class="radio-options">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="planType"
-                    id="individualRadio"
-                    value="Individual"
-                    checked
-                  />
-                  <label class="form-check-label" for="individualRadio">
-                    <span class="radio-title">Individual</span>
-                    <span class="radio-description"
-                      >Perfect for single coverage</span
-                    >
-                  </label>
-                </div>
-
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="planType"
-                    id="familyRadio"
-                    value="Family"
-                  />
-                  <label class="form-check-label" for="familyRadio">
-                    <span class="radio-title">Family</span>
-                    <span class="radio-description"
-                      >Coverage for your whole family</span
-                    >
-                  </label>
-                </div>
-
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="planType"
-                    id="seniorRadio"
-                    value="Senior"
-                  />
-                  <label class="form-check-label" for="seniorRadio">
-                    <span class="radio-title">Senior</span>
-                    <span class="radio-description"
-                      >Specialized care for seniors</span
-                    >
-                  </label>
-                </div>
-
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="planType"
-                    id="groupRadio"
-                    value="Group"
-                  />
-                  <label class="form-check-label" for="groupRadio">
-                    <span class="radio-title">Group</span>
-                    <span class="radio-description"
-                      >Ideal for organizations</span
-                    >
-                  </label>
-                </div>
+            <div class="mb-4">
+              <div class="card-custom h-100">
+                <h3 class="section-title">Vision</h3>
+                <p class="about-text">
+                  To inspire and guide individuals toward living with clarity,
+                  intention, and purpose—unlocking their full potential and
+                  transforming their lives.
+                </p>
               </div>
-
-              <div class="text-end mt-4">
-                <a href="#" id="plan-choose">
-                  <button
-                    class="services-next-button"
-                    onclick="PlanChoose(event)"
-                    id="next-button"
-                  >
-                    Next Step <i class="fa fa-arrow-right"></i>
-                  </button>
-                </a>
+            </div>
+            <div>
+              <div class="card-custom h-100">
+                <h3 class="section-title">Mission</h3>
+                <p class="about-text">
+                  To create a business where every individual lives with
+                  purpose, fulfilment, and direction—empowered to make a
+                  meaningful impact in their own lives and others'.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!--modal-->
-    <div class="modal" tabindex="-1" id="group-modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">50K Preferred Plan</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <p>Modal body text goes here.</p>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              id="openClientDetails"
-              onclick="openClientModal()"
-            >
-              Next Step
-            </button>
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+      <div class="container">
+        <div class="card-custom">
+          <h2 class="section-title text-center">Contact Us</h2>
+          <div class="row mt-4">
+            <div class="col-md-6 mb-4">
+              <h5><i class="fas fa-map-marker-alt"></i> Address</h5>
+              <p>
+                building 3rd flr. rm. 304, Mataas-na-Lupa, lipa city, batangas
+              </p>
+              <h5><i class="fas fa-phone"></i> Phone</h5>
+              <p>+63 921 492 6302</p>
+              <h5><i class="fas fa-envelope"></i> Email</h5>
+              <p>divine_segui@yahoo.com</p>
+            </div>
+            <div class="col-md-6">
+              <form>
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Your Email"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <textarea
+                    class="form-control"
+                    rows="4"
+                    placeholder="Your Message"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">
+                  Send Message
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- Bottom Nav (mobile only) -->
+    <div class="bottom-nav">
+      <a href="#home"><i class="fas fa-home"></i>Home</a>
+      <a
+        href="#services"
+        data-bs-toggle="modal"
+        data-bs-target="#insuranceModal"
+        ><i class="fas fa-cogs"></i>Services</a
+      >
+      <a href="tools.html"><i class="fas fa-tools"></i> Tools</a>
+      <a href="#about"><i class="fas fa-info-circle"></i>About</a>
+      <a href="#contact"><i class="fas fa-envelope"></i>Contact</a>
     </div>
 
-    <!-- Modal -->
+    <!-- Insurance Modal -->
     <div
       class="modal fade"
-      id="clientDetailsModal"
+      id="insuranceModal"
       tabindex="-1"
-      aria-labelledby="clientDetailsModalLabel"
+      aria-labelledby="insuranceModalLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="clientDetailsModalLabel">
-              Client Information
+        <div class="modal-content border-0 shadow-lg">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title" id="insuranceModalLabel">
+              Select Insurance Type
             </h5>
             <button
               type="button"
-              class="btn-close"
+              class="btn-close btn-close-white"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
           </div>
-
-          <div class="modal-body">
-            <form id="clientForm">
-              <!-- Full Name -->
-              <div class="mb-3">
-                <label class="form-label">Full Name</label>
-                <div class="row g-2">
-                  <div class="col-md-5">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Last Name"
-                      id="LastName"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-5">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="FirstName"
-                      placeholder="First Name"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-2">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="M.I."
-                      id="MiddleName"
-                      maxlength="1"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <!-- Birthdate -->
-              <div class="mb-3">
-                <label class="form-label">Birthdate</label>
-                <input type="date" class="form-control" id="bday" required />
-              </div>
-
-              <!-- Address -->
-              <div class="mb-3">
-                <label class="form-label">Address</label>
-                <textarea
-                  class="form-control"
-                  rows="2"
-                  placeholder="Complete Address"
-                  id="address"
-                  required
-                ></textarea>
-              </div>
-
-              <!-- Email -->
-              <div class="mb-3">
-                <label class="form-label">Email Address</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  placeholder="example@domain.com"
-                  id="email"
-                  required
-                />
-              </div>
-
-              <!-- Gender -->
-              <div class="mb-3">
-                <label class="form-label">Gender</label>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="gender"
-                    id="male"
-                    value="Male"
-                    required
-                  />
-                  <label class="form-check-label" for="male">Male</label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="gender"
-                    id="female"
-                    value="Female"
-                  />
-                  <label class="form-check-label" for="female">Female</label>
-                </div>
-              </div>
-
-              <!-- Civil Status -->
-              <div class="mb-3">
-                <label class="form-label">Civil Status</label>
-                <select class="form-select" id="civil-status" name="civil-status" required>
-                  <option selected disabled value="">Select status</option>
-                  <option>Single</option>
-                  <option>Married</option>
-                  <option>Widowed</option>
-                  <option>Divorced</option>
-                  <option>Separated</option>
-                </select>
-              </div>
-            </form>
-          </div>
-
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Cancel
-            </button>
-            <button type="button" class="btn btn-primary" onclick="saveOnClick()">
-              Next
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="portfolio" class="our-portfolio section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 offset-lg-3">
-            <div
-              class="section-heading wow bounceIn d-flex"
-              data-wow-duration="1s"
-              data-wow-delay="0.2s"
-            >
-              <h2><em>Smart</em><span>Care</span> Easy Access Tools</h2>
+          <div class="modal-body text-center">
+            <div class="d-grid gap-3">
+              <button class="btn btn-outline-primary btn-lg" id="hmoBtn">
+                <i class="fas fa-hospital"></i> HMO
+              </button>
+              <button class="btn btn-outline-success btn-lg" id="lifeBtn">
+                <i class="fas fa-heart"></i> Life
+              </button>
+              <button class="btn btn-outline-warning btn-lg" id="nonlifeBtn">
+                <i class="fas fa-car"></i> Nonlife
+              </button>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-3 col-sm-6">
-            <a href="LOA.html">
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.3s"
-              >
-                <div class="hidden-content">
-                  <h4>LOA Request</h4>
-                </div>
-                <div class="showed-content">
-                  <img
-                    src="assets/images/link image/LOA Request/LOA REQUEST.png"
-                    alt="Loa Request"
-                  />
-                  <p>LOA Request</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <a href="Clinic.html">
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.4s"
-              >
-                <div class="hidden-content">
-                  <h4>Clinic & Hospital</h4>
-                </div>
-                <div class="showed-content">
-                  <img
-                    src="assets/images/link image/Clinic & Hospital.png"
-                    alt="clinic hospital image"
-                  />
-                  <p>Clinic & Hospital</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <a href="APE.html">
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.5s"
-              >
-                <div class="hidden-content">
-                  <h4>APE Request</h4>
-                </div>
-                <div class="showed-content">
-                  <img
-                    src="assets/images/link image/APE Request.png"
-                    alt="APE request image"
-                  />
-                  <p>APE Request</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <a
-              href="https://forms.zohopublic.com/claim135/form/HeyPhilApp20Assistance/formperma/q32ucIKyGTKgtJv1Xo2SmBcLKsQN2RhWRvE3FIkhXLY"
-            >
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.6s"
-              >
-                <div class="hidden-content">
-                  <h4>Assistance</h4>
-                </div>
-                <div class="showed-content">
-                  <img
-                    src="assets/images/link image/Assistance.png"
-                    alt="Assistance image"
-                  />
-                  <p>Assistance</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-6 pt-4">
-            <a href="https://claim135.net/insurance">
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.3s"
-              >
-                <div class="hidden-content">
-                  <h4>Insurane Claim</h4>
-                </div>
-                <div class="showed-content">
-                  <img
-                    src="assets/images/link image/Insurance Claim.png"
-                    alt="Insurance Claim image"
-                  />
-                  <p>Insurance Claim</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-6 pt-4">
-            <a href="https://philcare.com.ph/app/forms/reimbursement/">
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.3s"
-              >
-                <div class="hidden-content">
-                  <h4>Reimbursement</h4>
-                </div>
-                <div class="showed-content">
-                  <img
-                    src="assets/images/link image/Reimbursement.png"
-                    alt="Reimbursement image"
-                  />
-                  <p>Reimbursement</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-6 pt-4">
-            <a
-              href="https://philcare-my.sharepoint.com/:x:/g/personal/cdt_philcare_com_ph/EfbLhnsrLQZOt-SgQv4nndEB2B4HgY1gpq8dqmiwyR4agw?rtime=qB8j-K603Ug&nav=MTVfezMxNDkxRjFFLTM1RDQtNDA4My04NTQxLUYzQjc1MEM1RjJFQ30"
-            >
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.3s"
-              >
-                <div class="hidden-content">
-                  <h4>Dental</h4>
-                </div>
-                <div class="showed-content">
-                  <img src="assets/images/link image/Dental.png" alt="" />
-                  <p>Dental</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-6 pt-4">
-            <a href="https://philcare.com.ph/gateway/login">
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.3s"
-              >
-                <div class="hidden-content">
-                  <h4>Members Gateway</h4>
-                </div>
-                <div class="showed-content">
-                  <img
-                    src="assets/images/link image/Member gate way.png"
-                    alt=""
-                  />
-                  <p>Members Gateway</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-6 pt-4">
-            <a href="https://www.youtube.com/watch?v=Jes5p1ey1Mg">
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.3s"
-              >
-                <div class="hidden-content">
-                  <h4>Benefit Presentation</h4>
-                </div>
-                <div class="showed-content">
-                  <img
-                    src="assets/images/link image/Benefit Presentation.png"
-                    alt=""
-                  />
-                  <p>Benefit Presentation</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-6 pt-4">
-            <a
-              href="https://forms.zohopublic.com/claim135/form/IDCardRequestForm/formperma/rjvQj9zA5kJVz9otjSXK54D7bjYHsuhwPoxlnpdg6oM"
-            >
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.3s"
-              >
-                <div class="hidden-content">
-                  <h4>ID Card Status</h4>
-                </div>
-                <div class="showed-content">
-                  <img src="assets/images/link image/ID Card Status.png"" />
-                  <p>ID Card Status</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-6 pt-4">
-            <a
-              href="https://play.google.com/store/apps/details?id=com.app.heyphildigimedvtwo&hl=en&gl=US&fbclid=IwAR2dRAAqkeiE1iungPj7sJHKizV-_kYCCR1Mc0LG6VAJNtSu8O40xHh1mVg&pli=1"
-            >
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.3s"
-              >
-                <div class="hidden-content">
-                  <h4>HeyPhil App</h4>
-                </div>
-                <div class="showed-content">
-                  <img src="assets/images/link image/Hey Phil App.png" />
-                  <p>HeyPhil App</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-6 pt-4">
-            <a href="payment.html">
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.3s"
-              >
-                <div class="hidden-content">
-                  <h4>Pay Here</h4>
-                </div>
-                <div class="showed-content">
-                  <img src="assets/images/link image/PAY Here.png" />
-                  <p>Pay Here</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-6 pt-4">
-            <a href="https://claim135.net/pec">
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.3s"
-              >
-                <div class="hidden-content">
-                  <h4>PEC Guidelines</h4>
-                </div>
-                <div class="showed-content">
-                  <img src="assets/images/link image/PEC Guidelines.png" />
-                  <p>PEC Guidelines</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-6 pt-4">
-            <a
-              href="https://philcare.com.ph/uploads/files/WELLNESS%20BUDDIES%20LISTING%202022.pdf"
-            >
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.3s"
-              >
-                <div class="hidden-content">
-                  <h4>Wellness Buddies</h4>
-                </div>
-                <div class="showed-content">
-                  <img
-                    src="assets/images/link image/Wellness Buddies.png"
-                    alt=""
-                  />
-                  <p>Wellness Buddies</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-6 pt-4">
-            <a href="SmartCareBenefit.html">
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.3s"
-              >
-                <div class="hidden-content">
-                  <h4>SmartCare Benefit Presentation</h4>
-                </div>
-                <div class="showed-content">
-                  <img
-                    src="assets/images/link image/SmartCare Benefits ppts.png"
-                    alt=""
-                  />
-                  <p>SmartCare Benefit</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-6 pt-4">
-            <a href="conforme.html">
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.3s"
-              >
-                <div class="hidden-content">
-                  <h4>Conforme</h4>
-                </div>
-                <div class="showed-content">
-                  <img src="assets/images/link image/conforme.png" alt="" />
-                  <p>Conforme</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-6 pt-4">
-            <a href="https://claim135.net/">
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.3s"
-              >
-                <div class="hidden-content">
-                  <h4>More Products</h4>
-                </div>
-                <div class="showed-content">
-                  <img
-                    src="assets/images/link image/More Products.png"
-                    alt=""
-                  />
-                  <p>More Products</p>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
       </div>
     </div>
 
+    <!-- Drawer toggle scripts -->
+    <script src="assets/js/homepage.js"></script>
 
-    <div id="contact" class="contact-us section">
-      <div class="container">
-        <div class="row">
-          <div
-            class="col-lg-6 align-self-center wow fadeInLeft"
-            data-wow-duration="0.5s"
-            data-wow-delay="0.25s"
-          >
-            <div class="section-heading">
-              <h2>Feel Free To Send Us a Message For your Enquiries</h2>
-              <p>
-                We're here to help you with all your insurance needs. Whether
-                you have questions about policies, claims, or coverage options,
-                our team is ready to assist you promptly and professionally.
-              </p>
-              <div class="phone-info">
-                <h4>
-                  For any enquiry, Call Us:
-                  <span
-                    ><i class="fa fa-phone"></i>
-                    <a href="#">010-020-0340</a></span
-                  >
-                </h4>
-              </div>
-            </div>
-          </div>
-          <div
-            class="col-lg-6 wow fadeInRight contact-message"
-            data-wow-duration="0.5s"
-            data-wow-delay="0.25s"
-          >
-            <form id="contact" action="" method="post">
-              <div class="row">
-                <div class="col-lg-6">
-                  <fieldset>
-                    <input
-                      type="name"
-                      name="name"
-                      id="name"
-                      placeholder="Name"
-                      autocomplete="on"
-                      required
-                    />
-                  </fieldset>
-                </div>
-                <div class="col-lg-6">
-                  <fieldset>
-                    <input
-                      type="surname"
-                      name="surname"
-                      id="surname"
-                      placeholder="Surname"
-                      autocomplete="on"
-                      required
-                    />
-                  </fieldset>
-                </div>
-                <div class="col-lg-12">
-                  <fieldset>
-                    <input
-                      type="text"
-                      name="email"
-                      id="email"
-                      pattern="[^ @]*@[^ @]*"
-                      placeholder="Your Email"
-                      required=""
-                    />
-                  </fieldset>
-                </div>
-                <div class="col-lg-12">
-                  <fieldset>
-                    <textarea
-                      name="message"
-                      type="text"
-                      class="form-control"
-                      id="message"
-                      placeholder="Message"
-                      required=""
-                    ></textarea>
-                  </fieldset>
-                </div>
-                <div class="col-lg-12">
-                  <fieldset>
-                    <button type="submit" id="form-submit" class="main-button send-button">
-                      Send Message
-                    </button>
-                  </fieldset>
-                </div>
-              </div>
-              <div class="contact-dec">
-                <img src="assets/images/contact-decoration.png" alt="" />
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/animation.js"></script>
-    <script src="assets/js/imagesloaded.js"></script>
-    <script src="assets/js/templatemo-custom.js"></script>
-    <script src="enrollment.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
