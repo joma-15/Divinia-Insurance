@@ -57,14 +57,13 @@
       <nav class="drawer-nav">
         <a href="#home"><i class="fas fa-home"></i> Home</a>
         <a
+          id="services"
           href="#services"
           data-bs-toggle="modal"
           data-bs-target="#insuranceModal"
           ><i class="fas fa-cogs"></i> Services</a
         >
-        <a
-          data-bs-toggle="modal"
-          data-bs-target="#insuranceModal"
+        <a data-bs-toggle="modal" data-bs-target="#insuranceModal" id="tools"
           ><i class="fas fa-tools"></i> Tools</a
         >
         <a href="#about"><i class="fas fa-info-circle"></i> About</a>
@@ -77,30 +76,25 @@
       <div>
         <div class="hero-text">
           <h1>Welcome To DIS</h1>
-          <p>"Simplifying Life, Securing Your Future."</p>
+          <p>"One Place. Endless Possibilities"</p>
         </div>
         <img src="assets/images/Banner-right-image.png" alt="company image" />
       </div>
     </section>
 
     <!-- About Section -->
-    <!-- About Section -->
     <section id="about" class="section-padding">
       <div class="container">
         <div class="row g-4">
           <!-- About Us Card -->
           <div class="col-lg-6">
-            <div class="card-custom h-100">
+            <div class="card-custom h-90">
               <h2 class="section-title">About Us</h2>
               <p class="about-text">
-                At Divinia Insurance Services (DIS All Care Marketing), we
-                provide all the services you need in one place. Whether it's
-                insurance, business, career path, lifestyle and wellness — our
-                expertise is here to make things easier, faster, and more
-                reliable for you. We simplify your life by offering a complete
-                range of services — from Life, Non-Life, and HMO insurance to
-                wellness, home essentials, admin support, and more. One place.
-                Endless possibilities.
+                "At Divinia Insurance Services (DIS All Care Marketing), we make
+                life simple by offering everything in one place—from Life,
+                Non-Life, and HMO insurance to wellness, home essentials, and
+                admin support. One stop. Endless possibilities."
               </p>
               <a href="about.html" class="btn btn-outline-primary mt-3"
                 >See More</a
@@ -194,9 +188,12 @@
         href="#services"
         data-bs-toggle="modal"
         data-bs-target="#insuranceModal"
+        id="navServices"
         ><i class="fas fa-cogs"></i>Services</a
       >
-      <a href="tools.html"><i class="fas fa-tools"></i> Tools</a>
+      <a data-bs-toggle="modal" id="navTools" data-bs-target="#insuranceModal"
+        ><i class="fas fa-tools"></i> Tools</a
+      >
       <a href="#about"><i class="fas fa-info-circle"></i>About</a>
       <a href="#contact"><i class="fas fa-envelope"></i>Contact</a>
     </div>
@@ -224,16 +221,122 @@
           </div>
           <div class="modal-body text-center">
             <div class="d-grid gap-3">
-              <button class="btn btn-outline-primary btn-lg" id="hmoBtn">
+              <button
+                class="btn btn-outline-primary btn-lg"
+                id="hmoBtn"
+                data-bs-toggle="modal"
+                data-bs-target="#philcareModal"
+              >
                 <i class="fas fa-hospital"></i> HMO
               </button>
-              <button class="btn btn-outline-success btn-lg" id="lifeBtn">
+              <button
+                class="btn btn-outline-success btn-lg"
+                id="lifeBtn"
+                data-bs-toggle="modal"
+                data-bs-target="#notAvailableModal"
+              >
                 <i class="fas fa-heart"></i> Life
               </button>
-              <button class="btn btn-outline-warning btn-lg" id="nonlifeBtn">
+              <button
+                class="btn btn-outline-warning btn-lg"
+                id="nonlifeBtn"
+                data-bs-toggle="modal"
+                data-bs-target="#notAvailableModal"
+              >
                 <i class="fas fa-car"></i> Nonlife
               </button>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Philcare Shop Modal  -->
+    <div
+      class="modal fade"
+      id="philcareModal"
+      tabindex="-1"
+      aria-labelledby="philcareModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title" id="philcareModalLabel">PhilCare</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-center">
+            <img
+              src="assets/images/philcare logo.png"
+              alt="PhilCare Logo"
+              class="img-fluid mb-3 border border-primary border-2"
+              style="max-height: 200px"
+            />
+            <p class="mt-3">Welcome to PhilCare – Healthcare Made Smarter.</p>
+          </div>
+          <div class="modal-footer">
+            <div class="d-flex gap-3">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <a id="proceedBtn"
+                ><button type="button" class="btn btn-primary">
+                  Proceed
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Not Available Modal -->
+    <div
+      class="modal fade"
+      id="notAvailableModal"
+      tabindex="-1"
+      aria-labelledby="notAvailableModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title" id="notAvailableModalLabel">
+              Service Unavailable
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-center">
+            <i class="fas fa-exclamation-triangle fa-4x text-warning mb-3"></i>
+            <h4 class="fw-bold">Oops! 🚧</h4>
+            <p class="mt-2">
+              This service is <strong>not currently available</strong> right
+              now. Please check back again later — we’re working on something
+              exciting!
+            </p>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
           </div>
         </div>
       </div>

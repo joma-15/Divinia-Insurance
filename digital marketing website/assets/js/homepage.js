@@ -1,32 +1,60 @@
-function handleDrawer(){
-    const drawer = document.getElementById("drawer");
-    document.getElementById("openDrawer").addEventListener("click", () => {
-      drawer.classList.add("open");
-    });
-    document.getElementById("closeDrawer").addEventListener("click", () => {
-      drawer.classList.remove("open");
-    });
+function handleDrawer() {
+  const drawer = document.getElementById("drawer");
+  document.getElementById("openDrawer").addEventListener("click", () => {
+    drawer.classList.add("open");
+  });
+  document.getElementById("closeDrawer").addEventListener("click", () => {
+    drawer.classList.remove("open");
+  });
 }
-handleDrawer(); 
+handleDrawer();
 
+function handlePreloader() {
+  // Preloader fade-out after 3 seconds
+  // window.addEventListener("load", function(){
+  //   setTimeout(function(){
+  //     document.getElementById("preloader").classList.add("fade-out");
+  //   }, 1000);
+  // });
 
-function handlePreloader(){
-    // Preloader fade-out after 3 seconds
-    // window.addEventListener("load", function(){
-    //   setTimeout(function(){
-    //     document.getElementById("preloader").classList.add("fade-out");
-    //   }, 1000);
-    // });
+  const preloader = document.getElementById("preloader");
 
-    const preloader = document.getElementById("preloader"); 
-
-    if (!sessionStorage.getItem("preloaderShown")) {
-      setTimeout(() => {
-        preloader.classList.add("fade-out"); 
-        sessionStorage.setItem("preloaderShown", "true"); 
-      }, 3000);
-    }else{
-      preloader.style.display = "none"; //dont show anything in the screen
-    }
+  if (!sessionStorage.getItem("preloaderShown")) {
+    setTimeout(() => {
+      preloader.classList.add("fade-out");
+      sessionStorage.setItem("preloaderShown", "true");
+    }, 3000);
+  } else {
+    preloader.style.display = "none"; //dont show anything in the screen
+  }
 }
 handlePreloader();
+
+function webLink() {
+  const modal = document.getElementById("proceedBtn");
+  const services = document.getElementById("services");
+  const navServices = document.getElementById("navServices");
+  const navTools = document.getElementById("navTools");
+  const tools = document.getElementById("tools");
+
+  // const services = document.querySelectorAll('#services', '#navServices');
+  // const tools = document.querySelectorAll('#tools', '#navTools');
+
+  tools.addEventListener("click", () => {
+    modal.setAttribute("href", "tools.html");
+  });
+
+  services.addEventListener("click", () => {
+    modal.setAttribute("href", "shop.html");
+  });
+
+  //for nav
+  navTools.addEventListener("click", () => {
+    modal.setAttribute("href", "tools.html");
+  });
+
+  navServices.addEventListener("click", () => {
+    modal.setAttribute("href", "shop.html");
+  });
+}
+webLink();

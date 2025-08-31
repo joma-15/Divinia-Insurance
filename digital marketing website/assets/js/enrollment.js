@@ -1,18 +1,20 @@
 //direct the link depending on the selected value 
-function PlanChoose(event){
+function PlanChoose(){
+    console.log('the planchoose function is being triggered');
     const selectedPlan = document.querySelector('input[name="planType"]:checked').value;
-     event.preventDefault(); // prevent immediate navigation
+    console.log(selectedPlan);
+    localStorage.setItem('selectedPlan', selectedPlan);
 
+    // if (selectedPlan == "Individual" || selectedPlan == "Family" || selectedPlan == "Senior") {
+    //         window.location.href = "Plans.html"
+    // }
 
-    if (selectedPlan == "Individual" || selectedPlan == "Family" || selectedPlan == "Senior") {
-            window.location.href = "Plans.html"
-    }
-
-    if (selectedPlan == "Group") {
-        const modal = new bootstrap.Modal(document.getElementById('group-modal')); 
-        modal.show();
+    // if (selectedPlan == "Group") {
+    //     const modal = new bootstrap.Modal(document.getElementById('group-modal')); 
+    //     modal.show();
              
-    }
+    // }
+    window.location.href = "Plans.html";
 }
 
 
@@ -84,6 +86,8 @@ function extractData(){
 
 
 function saveToLocalStorage(formdata){
+  console.log('the data has been saved to local storage');
+  console.log(formdata);
   if (formdata) {
     localStorage.setItem('data', JSON.stringify(formdata)); 
     window.location.href = 'payment.html';//saved the data to this page
@@ -121,7 +125,7 @@ async function submitData(data){
 
   // Map your data to Google Form fields (verify these entry IDs)
   const formFields = {
-  'entry.118683267': "hello world",
+  'entry.118683267': localStorage.getItem('selectedPlan'),
   'entry.328719651': data.fullName,
   'entry.1226942228_year': data.birthDate.year,
   'entry.1226942228_month': data.birthDate.month,
