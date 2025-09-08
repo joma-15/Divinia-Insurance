@@ -1,4 +1,4 @@
-import { FormData } from "undici-types";
+
 
 //direct the link depending on the selected value
 function PlanChoose() {
@@ -20,7 +20,6 @@ function PlanChoose() {
   // }
   window.location.href = "Plans.html";
 }
-
 
 function openClientModal() {
   const groupModal = bootstrap.Modal.getInstance(
@@ -198,36 +197,98 @@ function saveOnClick() {
 //   console.warn('No data found in the local storage')
 // }
 //for payment click
-async function submitOnClick(event) {
-  console.log("the function is trigger");
-  event.preventDefault();
+// async function submitOnClick(event) {
+//   console.log("the function is trigger");
+//   event.preventDefault();
 
-  const localStorageData = getData(); //get the data from the local storage
+//   const localStorageData = getData(); //get the data from the local storage
+//   if (localStorageData) {
+//     await submitData(localStorageData);
+//     alert("the data was submitted successfully");
+//     console.log("the data has been sent to the database");
+//     window.location.href = "index.html";
+//   }
+// }
+
+async function submitOnClick(event) {
+  event.preventDefault();
+  console.log("the function is triggered");
+
+  // 1️⃣ Get localStorage data
+  const localStorageData = getData(); 
   if (localStorageData) {
     await submitData(localStorageData);
-    alert("the data was submitted successfully");
-    console.log("the data has been sent to the database");
-    window.location.href = "index.html";
+    console.log("The form data has been sent to Google Form / DB");
   }
-}
 
-//for sending proof of payment to the gmail
-function sendProofPayment() {
-  const payment = document.getElementById("paymentForm");
+  // 2️⃣ Handle file upload
+  const fileInput = document.getElementById("screenshot");
+  const file = fileInput.files[0];
 
-  payment.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const fileInput = document.getElementById("screenshot");
-    const file = fileInput.files[0]; 
-
-    const formData = new FormData(); 
+  if (file) {
+    const formData = new FormData();
     formData.append("proofImage", file);
 
-    //send the file to the backend
-     const res = await fetch("http://localhost:3000/upload", {
-      method: "POST", 
-      body: formData
-     });
-  });
+    const res = await fetch("http://localhost:3000/upload", {
+      method: "POST",
+      body: formData,
+    });
+
+    console.log("File uploaded:", res);
+  }
+
+  // 3️⃣ Redirect after success
+  alert("The data was submitted successfully");
+  window.location.href = "index.html";
 }
+
+
+//showpayment details
+function showPaymentDetails() {
+        const methods = document.querySelectorAll(".payment-info");
+        methods.forEach((m) => (m.style.display = "none"));
+
+        const selected = document.getElementById("paymentSelect").value;
+        document.getElementById(selected).style.display = "block";
+      }
+
+      function copyText(text) {
+        navigator.clipboard.writeText(text);
+        alert("Copied to clipboard!");
+      }
+
+      async function sendEmail() {
+        const emailAddress = "adelantarjhonmarcel@gmail.com";
+
+        try {
+          //fetch data from the email js api
+          const data = fetch("email/js");
+          console.log("the data has been fetch successfully", data);
+        } catch (error) {
+          console.log("An errored has been occured");
+        }
+      }
+
+
+//for sending proof of payment to the gmail
+// function sendProofPayment() {
+//   const payment = document.getElementById("paymentForm");
+
+//   payment.addEventListener("submit", async (e) => {
+//     e.preventDefault();
+
+//     const fileInput = document.getElementById("screenshot");
+//     const file = fileInput.files[0];
+
+//     const formData = new FormData();
+//     formData.append("proofImage", file);
+
+//     //send the file to the backend
+//     const res = await fetch("http://localhost:3000/upload", {
+//       method: "POST",
+//       body: formData,
+//     });
+
+//     console.log("the data is being submitted : ", res);
+//   });
+// }
