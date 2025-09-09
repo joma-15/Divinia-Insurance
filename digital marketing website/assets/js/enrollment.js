@@ -270,25 +270,6 @@ function showPaymentDetails() {
       }
 
 
-//for sending proof of payment to the gmail
-// function sendProofPayment() {
-//   const payment = document.getElementById("paymentForm");
-
-//   payment.addEventListener("submit", async (e) => {
-//     e.preventDefault();
-
-//     const fileInput = document.getElementById("screenshot");
-//     const file = fileInput.files[0];
-
-//     const formData = new FormData();
-//     formData.append("proofImage", file);
-
-//     //send the file to the backend
-//     const res = await fetch("http://localhost:3000/upload", {
-//       method: "POST",
-//       body: formData,
-//     });
-
-//     console.log("the data is being submitted : ", res);
-//   });
-// }
+function sendProofPaymentGmail(){
+  
+}
