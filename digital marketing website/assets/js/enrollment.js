@@ -184,31 +184,17 @@ async function submitData(data) {
 
 //for form click
 function saveOnClick() {
-  const data = extractData();
-  if (data) {
-    saveToLocalStorage(data); //save the data to the local storage
-  }
+  document.getElementById("save-info")
+  .addEventListener("click", () => {
+    const data = extractData(); 
+
+    if (data) {
+      saveToLocalStorage(data); 
+      window.location.href = "payment.html";
+    }
+  })
 }
-
-// const localStorageData = getData(); //get the data from the local storage
-// if (localStorageData) {
-//   submitData(localStorageData);//submit the data to the database
-// }else{
-//   console.warn('No data found in the local storage')
-// }
-//for payment click
-// async function submitOnClick(event) {
-//   console.log("the function is trigger");
-//   event.preventDefault();
-
-//   const localStorageData = getData(); //get the data from the local storage
-//   if (localStorageData) {
-//     await submitData(localStorageData);
-//     alert("the data was submitted successfully");
-//     console.log("the data has been sent to the database");
-//     window.location.href = "index.html";
-//   }
-// }
+saveOnClick();
 
 async function submitOnClick(event) {
   event.preventDefault();
@@ -240,36 +226,4 @@ async function submitOnClick(event) {
   // 3️⃣ Redirect after success
   alert("The data was submitted successfully");
   window.location.href = "index.html";
-}
-
-
-//showpayment details
-function showPaymentDetails() {
-        const methods = document.querySelectorAll(".payment-info");
-        methods.forEach((m) => (m.style.display = "none"));
-
-        const selected = document.getElementById("paymentSelect").value;
-        document.getElementById(selected).style.display = "block";
-      }
-
-      function copyText(text) {
-        navigator.clipboard.writeText(text);
-        alert("Copied to clipboard!");
-      }
-
-      async function sendEmail() {
-        const emailAddress = "adelantarjhonmarcel@gmail.com";
-
-        try {
-          //fetch data from the email js api
-          const data = fetch("email/js");
-          console.log("the data has been fetch successfully", data);
-        } catch (error) {
-          console.log("An errored has been occured");
-        }
-      }
-
-
-function sendProofPaymentGmail(){
-  
 }
