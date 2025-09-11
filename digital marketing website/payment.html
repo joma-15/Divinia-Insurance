@@ -22,54 +22,46 @@
       <div class="card step-content" id="step1">
         <h2>Select Payment Method</h2>
         <div class="payment-methods">
+          <div class="method-card" onclick="selectMethod(this, 'GCash')">
+            📱 GCash
+          </div>
           <div class="method-card" onclick="selectMethod(this, 'BDO')">
             🏦 BDO
           </div>
           <div class="method-card" onclick="selectMethod(this, 'BPI')">
             🏦 BPI
           </div>
-          <div class="method-card" onclick="selectMethod(this, 'GCash')">
-            📱 GCash
-          </div>
           <div class="method-card" onclick="selectMethod(this, 'PayPal')">
-            💳 PayMaya
+            💳 PayPal
           </div>
         </div>
         <br />
         <button class="btn btn-next" onclick="nextStep(1)">Next →</button>
       </div>
 
-      <!-- Step 2 -->
+      <!-- Step 2 (Dynamic) -->
       <div class="card step-content" id="step2" style="display: none">
         <button class="back-button-local" onclick="prevStep(2)">⬅ Back</button>
-        <h2 class="text-center">💳 Send Payment via GCash</h2>
+        <h2 class="text-center" id="step2Title">💳 Send Payment</h2>
 
-        <!-- Choose GCash Number -->
+        <!-- Account Selection -->
         <div class="form-group">
-          <label for="gcashNumber">📱 Choose GCash Number</label>
-          <select
-            id="gcashNumber"
-            onchange="showQRCode()"
-            class="styled-select"
-          >
-            <option value="">-- Select a number --</option>
-            <option value="1">0995-8205-788</option>
-            <option value="2">0917-7761-278</option>
+          <label id="accountLabel" for="accountSelect">Select Account</label>
+          <select id="accountSelect" onchange="showAccount()" class="styled-select">
+            <option value="">-- Select an option --</option>
           </select>
+        </div>
+
+        <!-- Display Selected + Copy -->
+        <div id="accountBox" style="display: none; margin-top: 10px">
+          <span id="selectedAccount" style="font-weight: bold"></span>
+          <button onclick="copyAccount()">📋 Copy</button>
         </div>
 
         <!-- Instructions -->
         <div class="instruction-box">
           <h3>📝 Instructions</h3>
-          <ol>
-            <li>Select the GCash number you want to send to.</li>
-            <li>Scan the displayed QR code using your GCash app.</li>
-            <li>Enter the amount and confirm the payment.</li>
-            <li>Take a screenshot of your payment confirmation and go back to this website.</li>
-            <li>
-              Click the next button and send your proof of payment via 📧 Gmail or 📘 Facebook Messenger.
-            </li>
-          </ol>
+          <ol id="instructionList"></ol>
         </div>
 
         <button class="btn btn-next" onclick="nextStep(2)">Next →</button>
@@ -79,10 +71,7 @@
       <div class="card step-content" id="step3" style="display: none">
         <button class="back-button-local" onclick="prevStep(3)">⬅ Back</button>
         <h2>Send Proof of Payment</h2>
-        <p>
-          Please send your proof of payment through one of the following
-          options:
-        </p>
+        <p>Please send your proof of payment through one of the following options:</p>
         <div class="btn-send btn-gmail" onclick="sendProofPaymentGmail()">
           <img
             src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg"
@@ -108,6 +97,69 @@
     <script>
       let selectedMethod = "";
 
+      // Accounts + Instructions for each method
+      const paymentData = {
+        GCash: {
+          title: "📱 Send Payment via GCash",
+          label: "📱 Choose GCash Number",
+          accounts: [
+            { value: "09958205788", label: "0995-8205-788" },
+            { value: "09177761278", label: "0917-7761-278" },
+          ],
+          instructions: [
+            "Select the GCash number you want to send to.",
+            "Copy the number above and go to your GCash app.",
+            "Enter the amount and confirm the payment (please pay the exact amount).",
+            "Take a screenshot of your payment confirmation and go back to this website.",
+            "Click the Next button and send your proof of payment via 📧 Gmail or 📘 Facebook Messenger.",
+          ],
+        },
+        BDO: {
+          title: "🏦 Send Payment via BDO",
+          label: "🏦 Choose BDO Account",
+          accounts: [
+            { value: "1234567890", label: "1234-5678-90 (Savings)" },
+            { value: "0987654321", label: "0987-6543-21 (Checking)" },
+          ],
+          instructions: [
+            "Select the BDO account you want to send to.",
+            "Copy the account number and log in to your BDO app or online banking.",
+            "Transfer the exact payment amount.",
+            "Take a screenshot of your transaction confirmation.",
+            "Click Next and send your proof of payment via 📧 Gmail or 📘 Facebook Messenger.",
+          ],
+        },
+        BPI: {
+          title: "🏦 Send Payment via BPI",
+          label: "🏦 Choose BPI Account",
+          accounts: [
+            { value: "222233334444", label: "2222-3333-4444 (Savings)" },
+            { value: "555566667777", label: "5555-6666-7777 (Checking)" },
+          ],
+          instructions: [
+            "Select the BPI account you want to send to.",
+            "Copy the account number and log in to your BPI app or online banking.",
+            "Transfer the exact payment amount.",
+            "Take a screenshot of your transaction confirmation.",
+            "Click Next and send your proof of payment via 📧 Gmail or 📘 Facebook Messenger.",
+          ],
+        },
+        PayPal: {
+          title: "💳 Send Payment via PayPal",
+          label: "💳 Choose PayPal Account",
+          accounts: [
+            { value: "yourpaypal@email.com", label: "yourpaypal@email.com" },
+          ],
+          instructions: [
+            "Select the PayPal account (usually an email).",
+            "Copy the email above and open your PayPal app or website.",
+            "Send the exact payment amount.",
+            "Take a screenshot of your transaction confirmation.",
+            "Click Next and send your proof of payment via 📧 Gmail or 📘 Facebook Messenger.",
+          ],
+        },
+      };
+
       function nextStep(step) {
         if (step === 1 && !selectedMethod) {
           alert("Please select a payment method first.");
@@ -116,6 +168,11 @@
 
         document.getElementById("step" + step).style.display = "none";
         document.getElementById("step" + (step + 1)).style.display = "block";
+
+        // If entering Step 2, populate dynamically
+        if (step === 1) {
+          loadPaymentData(selectedMethod);
+        }
 
         const steps = document.querySelectorAll(".step");
         steps[step].classList.add("active");
@@ -132,6 +189,47 @@
           .forEach((card) => card.classList.remove("active"));
         el.classList.add("active");
         selectedMethod = method;
+      }
+
+      function loadPaymentData(method) {
+        const data = paymentData[method];
+
+        document.getElementById("step2Title").textContent = data.title;
+        document.getElementById("accountLabel").textContent = data.label;
+
+        const select = document.getElementById("accountSelect");
+        select.innerHTML = '<option value="">-- Select an option --</option>';
+        data.accounts.forEach((acc) => {
+          select.innerHTML += `<option value="${acc.value}">${acc.label}</option>`;
+        });
+
+        const instructionList = document.getElementById("instructionList");
+        instructionList.innerHTML = "";
+        data.instructions.forEach((text) => {
+          instructionList.innerHTML += `<li>${text}</li>`;
+        });
+
+        document.getElementById("accountBox").style.display = "none";
+      }
+
+      function showAccount() {
+        const select = document.getElementById("accountSelect");
+        const selectedAccount = document.getElementById("selectedAccount");
+        const accountBox = document.getElementById("accountBox");
+
+        if (select.value) {
+          selectedAccount.textContent = select.value;
+          accountBox.style.display = "block";
+        } else {
+          accountBox.style.display = "none";
+        }
+      }
+
+      function copyAccount() {
+        const account = document.getElementById("selectedAccount").textContent;
+        navigator.clipboard.writeText(account).then(() => {
+          alert("✅ Copied: " + account);
+        });
       }
 
       function sendProofPaymentGmail() {
