@@ -99,7 +99,6 @@ function saveToLocalStorage(formdata) {
   console.log(formdata);
   if (formdata) {
     localStorage.setItem("data", JSON.stringify(formdata));
-    window.location.href = "payment.html"; //saved the data to this page
   } else {
     console.error(
       "An error has been occured while saving the data to the localstorage"
@@ -174,6 +173,7 @@ async function submitData(data) {
       body: params,
     });
     console.log("Data has been sent successfully");
+    alert("the data has been submitted successfully");
   } catch (error) {
     alert("an error occured sending the data");
     console.error("An error occured " + error);
@@ -187,14 +187,12 @@ function saveOnClick() {
 
     if (data) {
       saveToLocalStorage(data);
-      window.location.href = "payment.html";
     }
   });
 }
 saveOnClick();
 
 async function submitOnClick(event) {
-  event.preventDefault();
   console.log("the function is triggered");
 
   // 1️⃣ Get localStorage data
@@ -203,24 +201,4 @@ async function submitOnClick(event) {
     await submitData(localStorageData);
     console.log("The form data has been sent to Google Form / DB");
   }
-
-  // 2️⃣ Handle file upload
-  const fileInput = document.getElementById("screenshot");
-  const file = fileInput.files[0];
-
-  if (file) {
-    const formData = new FormData();
-    formData.append("proofImage", file);
-
-    const res = await fetch("http://localhost:3000/upload", {
-      method: "POST",
-      body: formData,
-    });
-
-    console.log("File uploaded:", res);
-  }
-
-  // 3️⃣ Redirect after success
-  alert("The data was submitted successfully");
-  window.location.href = "index.html";
 }

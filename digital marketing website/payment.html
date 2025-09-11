@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Divinia Insurance - Payment Portal</title>
     <link rel="stylesheet" href="assets/css/payment.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
     <!-- Global Back Button -->
@@ -31,9 +32,6 @@
           <div class="method-card" onclick="selectMethod(this, 'BPI')">
             🏦 BPI
           </div>
-          <div class="method-card" onclick="selectMethod(this, 'PayPal')">
-            💳 PayPal
-          </div>
         </div>
         <br />
         <button class="btn btn-next" onclick="nextStep(1)">Next →</button>
@@ -47,7 +45,11 @@
         <!-- Account Selection -->
         <div class="form-group">
           <label id="accountLabel" for="accountSelect">Select Account</label>
-          <select id="accountSelect" onchange="showAccount()" class="styled-select">
+          <select
+            id="accountSelect"
+            onchange="showAccount()"
+            class="styled-select"
+          >
             <option value="">-- Select an option --</option>
           </select>
         </div>
@@ -71,7 +73,10 @@
       <div class="card step-content" id="step3" style="display: none">
         <button class="back-button-local" onclick="prevStep(3)">⬅ Back</button>
         <h2>Send Proof of Payment</h2>
-        <p>Please send your proof of payment through one of the following options:</p>
+        <p>
+          Please send your proof of payment through one of the following
+          options:
+        </p>
         <div class="btn-send btn-gmail" onclick="sendProofPaymentGmail()">
           <img
             src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg"
@@ -79,18 +84,36 @@
           />
           Send via Gmail
         </div>
-        <a
+        <div
           href="https://www.facebook.com/divinia.insurance"
           target="_blank"
           class="btn-send btn-facebook"
+          onclick="openModal()"
         >
           <img
             src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg"
             alt="Facebook"
           />
           Send via Facebook
-        </a>
+        </div>
         <br />
+      </div>
+    </div>
+
+    <!-- Custom Modal -->
+    <div id="facebookModal" class="custom-modal">
+      <div class="custom-modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div class="modal-header">
+          <h2>📘 Feature Unavailable</h2>
+        </div>
+        <div class="modal-body">
+          This feature is currently not available right now. We're currently
+          working on that.
+        </div>
+        <div class="modal-footer">
+          <button class="modal-ok-btn" onclick="closeModal()">OK</button>
+        </div>
       </div>
     </div>
 
@@ -118,8 +141,7 @@
           title: "🏦 Send Payment via BDO",
           label: "🏦 Choose BDO Account",
           accounts: [
-            { value: "1234567890", label: "1234-5678-90 (Savings)" },
-            { value: "0987654321", label: "0987-6543-21 (Checking)" },
+            { value: "005960232783", label: "5960-2327-83 (Savings)" },
           ],
           instructions: [
             "Select the BDO account you want to send to.",
@@ -130,30 +152,17 @@
           ],
         },
         BPI: {
-          title: "🏦 Send Payment via BPI",
-          label: "🏦 Choose BPI Account",
+          title: "🏦 Send Payment via our Local bank account",
+          label: "🏦 Choose LOLC_BANK Account",
           accounts: [
-            { value: "222233334444", label: "2222-3333-4444 (Savings)" },
-            { value: "555566667777", label: "5555-6666-7777 (Checking)" },
+            {
+              value: "00801004679",
+              label: "008-01-00467-9 (Divinia A. Segui)",
+            },
           ],
           instructions: [
-            "Select the BPI account you want to send to.",
-            "Copy the account number and log in to your BPI app or online banking.",
+            "Copy the account number and log in to your LOLC app or online banking.",
             "Transfer the exact payment amount.",
-            "Take a screenshot of your transaction confirmation.",
-            "Click Next and send your proof of payment via 📧 Gmail or 📘 Facebook Messenger.",
-          ],
-        },
-        PayPal: {
-          title: "💳 Send Payment via PayPal",
-          label: "💳 Choose PayPal Account",
-          accounts: [
-            { value: "yourpaypal@email.com", label: "yourpaypal@email.com" },
-          ],
-          instructions: [
-            "Select the PayPal account (usually an email).",
-            "Copy the email above and open your PayPal app or website.",
-            "Send the exact payment amount.",
             "Take a screenshot of your transaction confirmation.",
             "Click Next and send your proof of payment via 📧 Gmail or 📘 Facebook Messenger.",
           ],
@@ -246,6 +255,21 @@
           subject
         )}&body=${encodeURIComponent(body)}`;
       }
+
+      function openModal() {
+        document.getElementById("facebookModal").style.display = "block";
+      }
+      function closeModal() {
+        document.getElementById("facebookModal").style.display = "none";
+      }
+
+      // Close modal if clicked outside content
+      window.onclick = function (event) {
+        const modal = document.getElementById("facebookModal");
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
     </script>
   </body>
 </html>
