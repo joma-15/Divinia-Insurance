@@ -1,5 +1,3 @@
-
-
 //direct the link depending on the selected value
 function PlanChoose() {
   console.log("the planchoose function is being triggered");
@@ -184,15 +182,14 @@ async function submitData(data) {
 
 //for form click
 function saveOnClick() {
-  document.getElementById("save-info")
-  .addEventListener("click", () => {
-    const data = extractData(); 
+  document.getElementById("save-info").addEventListener("click", () => {
+    const data = extractData();
 
     if (data) {
-      saveToLocalStorage(data); 
+      saveToLocalStorage(data);
       window.location.href = "payment.html";
     }
-  })
+  });
 }
 saveOnClick();
 
@@ -201,7 +198,7 @@ async function submitOnClick(event) {
   console.log("the function is triggered");
 
   // 1️⃣ Get localStorage data
-  const localStorageData = getData(); 
+  const localStorageData = getData();
   if (localStorageData) {
     await submitData(localStorageData);
     console.log("The form data has been sent to Google Form / DB");
