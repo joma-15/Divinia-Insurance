@@ -241,7 +241,7 @@
         });
       }
 
-      function sendProofPaymentGmail() {
+      window.sendProofPaymentGmail =  function () {
         if (!selectedMethod) {
           alert("Please complete all fields before sending.");
           return;

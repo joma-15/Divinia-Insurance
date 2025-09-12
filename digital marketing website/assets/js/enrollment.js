@@ -143,18 +143,6 @@ async function submitData(data) {
     "entry.579757869": "Pending",
   };
 
-  // //  Map your data to Google Form fields (verify these entry IDs)
-  //     params.append('entry.118683267', "hello world");
-  //     params.append('entry.328719651', data.fullName);         // Full name
-  //     params.append('entry.1226942228_year', data.birthDate.year);  // Year
-  //     params.append('entry.1226942228_month', data.birthDate.month); // Month
-  //     params.append('entry.1226942228_day', data.birthDate.day);    // Day
-  //     params.append('entry.1564645568', data.address);         // Address
-  //     params.append('entry.1830843199', data.email);             // Email
-  //     params.append('entry.113235889', data.gender);           // Gender
-  //     params.append('entry.1003466199', data.civilStatus);     // Civil Status
-  //     params.append('entry.579757869', "Pending");
-
   for (const [key, value] of Object.entries(formFields)) {
     params.append(key, value);
   }

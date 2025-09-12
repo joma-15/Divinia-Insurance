@@ -19,7 +19,8 @@ function PlanChoose() {
 }
 document.addEventListener("DOMContentLoaded", PlanChoose);
 
-//check if the user have condition 
+
+//check if the user have condition
 function checkedConditions() {
   const checkboxes = document.querySelectorAll(
     "#conditionChecklist input[type='checkbox']"
@@ -32,6 +33,7 @@ function checkedConditions() {
   }
   return "No Condition";
 }
+
 
 //extract user information from the modal
 function extractData() {
@@ -76,7 +78,7 @@ function extractData() {
       return null;
     }
 
-    const data =  {
+    const data = {
       fullName: `${lastName} ${firstName} ${middleName}`,
       birthDate: {
         year: dateObj.getFullYear(),
@@ -90,21 +92,70 @@ function extractData() {
       plan,
       civilStatus,
     };
+    //localstorage for persistent data
+    localStorage.setItem("data", JSON.stringify(data));
+    window.location.href = "payment.html";
   });
-  //localstorage for persistent data
-  localStorage.setItem('data', data); 
 }
-document.addEventListener("DOMContentLoaded", sendDataToDB);
+document.addEventListener("DOMContentLoaded", extractData);
+
+
+async function sendIntoExcel(data) {
+  const formUrl =
+    "https://docs.google.com/forms/d/e/1FAIpQLScVcBDaGA9Rj93kd6K0GzDkm9ymkbz-rLjOKpFqE6DAzdKE1w/formResponse";
+  const params = new URLSearchParams();
+
+  //map the data to google form fields verify user id 
+  const formFields = {
+    "entry.118683267": localStorage.getItem("selectedPlan"),
+    "entry.328719651": data.fullName,
+    "entry.1226942228_year": data.birthDate.year,
+    "entry.1226942228_month": data.birthDate.month,
+    "entry.1226942228_day": data.birthDate.day,
+    "entry.1564645568": data.address,
+    "entry.1830843199": data.email,
+    "entry.113235889": data.gender,
+    "entry.1003466199": data.civilStatus,
+    "entry.526372370": data.condition,
+    "entry.2137808509": data.plan,
+    "entry.579757869": "Pending",
+  };
+
+  for (const [key, value] of Object.entries(formFields)) {
+    params.append(key, value);
+  }
+
+  if (!data) return false;
+
+  try {
+    const response = await fetch(formUrl, {
+      method: "POST",
+      mode: "no-cors",
+      body: params,
+    });
+    console.log(response);
+    alert("the data has been submitted successfully");
+  } catch (error) {
+    alert("an error occured sending the data");
+    console.error("An error occured " + error);
+  }
+}
 
 
 //send the data to the database and gmail
-async function sendData(data){
-  const btn = document.getElementById("gmail"); 
-  btn.addEventListener('click', async (data) => {
-    console.log('the fuckin function is being triggered')
-    console.log(data);
+async function sendData() {
+  const btn = document.getElementById("gmail");
 
-  }); 
-}; 
-const data = extractData();
-document.addEventListener('DOMContentLoaded', () => sendData(data));
+  btn.addEventListener("click", async () => {
+    const data = JSON.parse(localStorage.getItem('data'));
+    console.log("the fuckin function is being triggered");
+
+    if (!data) {
+      console.log("the data was missing");
+    }
+    console.log(JSON.stringify(data));
+    await sendIntoExcel(data);
+    sendProofPaymentGmail();
+  });
+}
+document.addEventListener("DOMContentLoaded", sendData);
