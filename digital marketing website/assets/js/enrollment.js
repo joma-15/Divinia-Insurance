@@ -127,11 +127,6 @@ async function submitData(data) {
     "https://docs.google.com/forms/d/e/1FAIpQLScVcBDaGA9Rj93kd6K0GzDkm9ymkbz-rLjOKpFqE6DAzdKE1w/formResponse";
   const params = new URLSearchParams();
 
-  // if (!data || !data.birthDate || !data.birthDate.year) {
-  //   console.log('the birday year is missing try again');
-  //   return;
-  // }
-
   // Map your data to Google Form fields (verify these entry IDs)
   const formFields = {
     "entry.118683267": localStorage.getItem("selectedPlan"),
