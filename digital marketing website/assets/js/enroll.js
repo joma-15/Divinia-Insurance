@@ -134,7 +134,6 @@ async function sendIntoExcel(data) {
       body: params,
     });
     console.log(response);
-    alert("the data has been submitted successfully");
   } catch (error) {
     alert("an error occured sending the data");
     console.error("An error occured " + error);
