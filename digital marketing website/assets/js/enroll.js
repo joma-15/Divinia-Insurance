@@ -1,45 +1,29 @@
-function extractData(){
-  const lastName = document.getElementById('LastName')?.value.trim();
-    const firstName = document.getElementById('FirstName')?.value.trim();
-    const middleName = document.getElementById('MiddleName')?.value.trim();
-    const birthDate = document.getElementById('bday')?.value;
-    const address = document.getElementById('address')?.value.trim();
-    const email = document.getElementById('email')?.value.trim();
-    const gender = document.querySelector('input[name="gender"]:checked')?.value;
-    const civilStatus = document.getElementById('civil-status')?.value;
-    let plan = document.querySelector('.card-title')?.innerText.trim() ?? '50K Plan'; 
-    const condition = checkedConditions();
-    
+function PlanChoose() {
+  const btn = document.getElementById("planChoose-btn"); // get the button
 
-    if (!lastName || !firstName || !middleName || !birthDate || !address || !email || !gender || !civilStatus) {
-      alert('Please complete all fields');
-      return null;
+  btn.addEventListener("click", () => {
+    console.log("the plan choose function is being triggered");
+
+    // extract the plan
+    const selectedPlan = document.querySelector(
+      'input[name="planType"]:checked'
+    ).value;
+
+    // save it in localStorage
+    localStorage.setItem("planType", selectedPlan);
+
+    if (localStorage.getItem("planType")) {
+      window.location.href = "payment.html";
     }
-
-     // Parse the birth date
-    const dateObj = new Date(birthDate);
-    if (isNaN(dateObj.getTime())) {
-      alert('Invalid date format');
-      return null;
-    }
-
-    const userData =  {
-      fullName: `${lastName} ${firstName} ${middleName}`,
-      birthDate: {
-        year: dateObj.getFullYear(),
-        month: dateObj.getMonth() + 1, // Months are 0-indexed
-        day: dateObj.getDate()
-      },
-      address,
-      email,
-      gender,
-      condition, 
-      plan,
-      civilStatus
-    };
-
-    localStorage.setItem('userData', JSON.stringify(userData));
-    console.log(localStorage.getItem('userData'));
+  });
 }
 
+// wait until the DOM is ready
+document.addEventListener("DOMContentLoaded", PlanChoose);
+
+
+//send the data to the excel sheet 
+async function sendData(){
+  
+}
 
