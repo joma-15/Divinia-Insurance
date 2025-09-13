@@ -1,141 +1,418 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Divinia Insurance Company</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Divinia Insurance Company</title>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- External stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css" />
-</head>
-<body>
-  <!-- Preloader -->
-  <div id="preloader">
-    <img src="assets/images/dis logo.png" alt="digital marketing logo" loading="lazy" />
-  </div>
-
-  <!-- Navbar -->
-  <nav class="navbar fixed-top d-flex justify-content-between align-items-center">
-    <button id="openDrawer" class="drawer-toggle">
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="text-end">
-      <img src="assets/images/dis.png" alt="company logo" />
+    <!-- External stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <img
+        src="assets/images/dis logo.png"
+        alt="digital marketing logo"
+        loading="lazy"
+      />
     </div>
-  </nav>
 
-  <!-- Drawer -->
-  <aside class="drawer" id="drawer">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <h2 class="fs-5 text-primary drawernav">Navigation</h2>
-      <button id="closeDrawer" class="fs-3">&times;</button>
-    </div>
-    <nav class="drawer-nav">
-      <a href="#home"><i class="fas fa-home"></i> Home</a>
-      <a id="services" href="#services" data-bs-toggle="modal" data-bs-target="#insuranceModal">
-        <i class="fas fa-cogs"></i> Services</a>
-      <a data-bs-toggle="modal" data-bs-target="#insuranceModal" id="tools">
-        <i class="fas fa-tools"></i> Tools</a>
-      <a href="#about"><i class="fas fa-info-circle"></i> About</a>
-      <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    <!-- Navbar -->
+    <nav
+      class="navbar fixed-top d-flex justify-content-between align-items-center"
+    >
+      <button id="openDrawer" class="drawer-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="text-end">
+        <img src="assets/images/dis.png" alt="company logo" />
+      </div>
     </nav>
-  </aside>
 
-  <!-- Hero Section (FIXED: wrapper added) -->
-  <section class="hero-section" id="home">
-    <!-- IMPORTANT: this wrapper is required by your CSS (.hero-section > div) -->
-    <div class="hero-inner">
-      <div class="hero-text">
-        <h1>Welcome To DIS</h1>
-        <p>"One Place. Endless Possibilities"</p>
+    <!-- Drawer -->
+    <aside class="drawer" id="drawer">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="fs-5 text-primary drawernav">Navigation</h2>
+        <button id="closeDrawer" class="fs-3">&times;</button>
       </div>
-      <img src="assets/images/Banner-right-image.png" alt="company image" />
-    </div>
-  </section>
+      <nav class="drawer-nav">
+        <a href="#home"><i class="fas fa-home"></i> Home</a>
+        <a
+          id="services"
+          href="#services"
+          data-bs-toggle="modal"
+          data-bs-target="#insuranceModal"
+        >
+          <i class="fas fa-cogs"></i> Services</a
+        >
+        <a data-bs-toggle="modal" data-bs-target="#insuranceModal" id="tools">
+          <i class="fas fa-tools"></i> Tools</a
+        >
+        <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+      </nav>
+    </aside>
 
-  <!-- About Section -->
-  <section id="about" class="section-padding">
-    <div class="container">
-      <div class="row g-4 equal-height">
-        <div class="col-lg-6">
-          <div class="card-custom shadow">
-            <h2 class="section-title">About Us</h2>
-            <p>
-              "At Divinia Insurance Services (DIS All Care Marketing), we make life simple by offering everything in one place—from Life, Non-Life, and HMO insurance to wellness, home essentials, and admin support. One stop. Endless possibilities."
-            </p>
-            <a href="about.html" class="btn btn-outline-primary mt-3">See More</a>
+    <!-- Hero Section (FIXED: wrapper added) -->
+    <section class="hero-section" id="home">
+      <!-- IMPORTANT: this wrapper is required by your CSS (.hero-section > div) -->
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>Welcome To DIS</h1>
+          <p>"One Place. Endless Possibilities"</p>
+        </div>
+        <img src="assets/images/Banner-right-image.png" alt="company image" />
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <div class="row g-4 equal-height">
+          <div class="col-lg-6">
+            <div class="card-custom shadow">
+              <h2 class="section-title">About Us</h2>
+              <p>
+                "At Divinia Insurance Services (DIS All Care Marketing), we make
+                life simple by offering everything in one place—from Life,
+                Non-Life, and HMO insurance to wellness, home essentials, and
+                admin support. One stop. Endless possibilities."
+              </p>
+              <a href="about.html" class="btn btn-outline-primary mt-3"
+                >See More</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-6 d-flex flex-column gap-4">
+            <div class="card-custom shadow">
+              <h3 class="section-title">Vision</h3>
+              <p>
+                To inspire and guide individuals toward living with clarity,
+                intention, and purpose—unlocking their full potential and
+                transforming their lives.
+              </p>
+            </div>
+            <div class="card-custom shadow">
+              <h3 class="section-title">Mission</h3>
+              <p>
+                To create a business where every individual lives with purpose,
+                fulfilment, and direction—empowered to make a meaningful impact
+                in their own lives and others'.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="col-lg-6 d-flex flex-column gap-4">
-          <div class="card-custom shadow">
-            <h3 class="section-title">Vision</h3>
-            <p>
-              To inspire and guide individuals toward living with clarity, intention, and purpose—unlocking their full potential and transforming their lives.
-            </p>
-          </div>
-          <div class="card-custom shadow">
-            <h3 class="section-title">Mission</h3>
-            <p>
-              To create a business where every individual lives with purpose, fulfilment, and direction—empowered to make a meaningful impact in their own lives and others'.
-            </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding py-5">
+      <div class="container">
+        <div class="card-custom text-center shadow">
+          <h2 class="section-title text-center">Contact Us</h2>
+          <div class="row mt-4">
+            <div class="col-md-6 mb-4 text-start">
+              <h5><i class="fas fa-map-marker-alt"></i> Address</h5>
+              <p>
+                Building 3rd flr. rm. 304, Mataas-na-Lupa, Lipa City, Batangas
+              </p>
+              <h5><i class="fas fa-phone"></i> Phone</h5>
+              <p>+63 921 492 6302</p>
+              <h5><i class="fas fa-envelope"></i> Email</h5>
+              <p>divine_segui@yahoo.com</p>
+            </div>
+            <div
+              class="col-md-6 d-flex justify-content-center align-items-center"
+            >
+              <a href="affiliate.html" class="affiliate-card">
+                <div class="affiliate-content">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/3126/3126647.png"
+                    alt="Affiliate Gift"
+                    class="affiliate-img"
+                  />
+                  <h3>🎁 Be an Affiliate</h3>
+                  <p>
+                    Join our affiliate program and unlock exciting rewards while
+                    helping others secure their future.
+                  </p>
+                  <span class="arrow">→</span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section-padding py-5">
-    <div class="container">
-      <div class="card-custom text-center shadow">
-        <h2 class="section-title text-center">Contact Us</h2>
-        <div class="row mt-4">
-          <div class="col-md-6 mb-4 text-start">
-            <h5><i class="fas fa-map-marker-alt"></i> Address</h5>
-            <p>Building 3rd flr. rm. 304, Mataas-na-Lupa, Lipa City, Batangas</p>
-            <h5><i class="fas fa-phone"></i> Phone</h5>
-            <p>+63 921 492 6302</p>
-            <h5><i class="fas fa-envelope"></i> Email</h5>
-            <p>divine_segui@yahoo.com</p>
+    <!-- Bottom Nav (mobile only) -->
+    <div class="bottom-nav">
+      <a href="#home"><i class="fas fa-home"></i>Home</a>
+      <a
+        href="#services"
+        data-bs-toggle="modal"
+        data-bs-target="#insuranceModalMobile"
+        id="navServices"
+      >
+        <i class="fas fa-cogs"></i>Services</a
+      >
+      <a data-bs-toggle="modal" id="navTools" data-bs-target="#insuranceModal">
+        <i class="fas fa-tools"></i> Tools</a
+      >
+      <a href="#about"><i class="fas fa-info-circle"></i>About</a>
+      <a href="#contact"><i class="fas fa-envelope"></i>Contact</a>
+    </div>
+
+    <div
+      class="modal fade"
+      id="insuranceModal"
+      tabindex="-1"
+      aria-labelledby="insuranceModalLabel"
+      aria-hidden="true"
+    >
+      <button
+        type="button"
+        class="floating-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content shadow-lg">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="insuranceModalLabel">
+              Our Insurance Services
+            </h5>
+            <!-- X button in the header (default Bootstrap) -->
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
-          <div class="col-md-6 d-flex justify-content-center align-items-center">
-            <a href="affiliate.html" class="affiliate-card">
-              <div class="affiliate-content">
-                <img src="https://cdn-icons-png.flaticon.com/512/3126/3126647.png"
-                  alt="Affiliate Gift" class="affiliate-img" />
-                <h3>🎁 Be an Affiliate</h3>
-                <p>Join our affiliate program and unlock exciting rewards while helping others secure their future.</p>
-                <span class="arrow">→</span>
+
+          <div class="modal-body">
+            <div class="row g-4">
+              <!-- Health Insurance -->
+              <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                  <img
+                    src="assets/images/health insurance.webp"
+                    class="card-img-top"
+                    alt="Health Insurance"
+                    loading="lazy"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title text-primary">Health Insurance</h5>
+                    <p class="card-text small">
+                      Protect yourself and your loved ones with our
+                      comprehensive health insurance plans.
+                    </p>
+                    <a href="shop.html" class="btn btn-primary w-100"
+                      >Go To Page</a
+                    >
+                  </div>
+                </div>
               </div>
-            </a>
+              <!-- Life Insurance -->
+              <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                  <img
+                    src="assets/images/life insurance.webp"
+                    class="card-img-top"
+                    alt="Life Insurance"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title text-primary">Life Insurance</h5>
+                    <p class="card-text small">
+                      Ensure your family's financial security with our tailored
+                      life insurance policies.
+                    </p>
+                    <button
+                      class="btn btn-primary w-100 mt-4"
+                      data-bs-toggle="modal"
+                      data-bs-target="#notAvailableModal"
+                      data-bs-dismiss="modal"
+                    >
+                      Go To Page
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Non-life Insurance -->
+              <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                  <img
+                    src="assets/images/non-life insurance.webp"
+                    class="card-img-top"
+                    alt="Non-life Insurance"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title text-primary">Non-life Insurance</h5>
+                    <p class="card-text small">
+                      Safeguard your assets like vehicles, homes, and valuables
+                      against unforeseen risks.
+                    </p>
+                    <button
+                      class="btn btn-primary w-100"
+                      data-bs-toggle="modal"
+                      data-bs-target="#notAvailableModal"
+                      data-bs-dismiss="modal"
+                    >
+                      Go To Page
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Bottom Nav (mobile only) -->
-  <div class="bottom-nav">
-    <a href="#home"><i class="fas fa-home"></i>Home</a>
-    <a href="#services" data-bs-toggle="modal" data-bs-target="#insuranceModal" id="navServices">
-      <i class="fas fa-cogs"></i>Services</a>
-    <a data-bs-toggle="modal" id="navTools" data-bs-target="#insuranceModal">
-      <i class="fas fa-tools"></i> Tools</a>
-    <a href="#about"><i class="fas fa-info-circle"></i>About</a>
-    <a href="#contact"><i class="fas fa-envelope"></i>Contact</a>
-  </div>
+    <!--mobile view modal -->
+    <div
+      class="modal fade d-block d-md-none"
+      id="insuranceModalMobile"
+      tabindex="-1"
+      aria-labelledby="insuranceModalLabelMobile"
+      aria-hidden="true"
+    >
+      <!-- Floating Close -->
+      <button
+        type="button"
+        class="floating-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      >
+        <i class="fas fa-times"></i>
+      </button>
 
-  <!-- Scripts -->
-  <script src="assets/js/homepage.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+          <div class="modal-header border-0 text-center">
+            <h5 class="modal-title fw-bold text-primary w-100">
+              🚀 Our Insurance Services
+            </h5>
+          </div>
+
+          <div class="modal-body px-3 py-4">
+            <div class="list-group list-group-flush">
+              <!-- Health -->
+              <a
+                href="shop.html"
+                class="list-group-item list-group-item-action d-flex align-items-center gap-3"
+              >
+                <div class="icon-circle bg-primary text-white">
+                  <i class="fas fa-heartbeat"></i>
+                </div>
+                <div>
+                  <h6 class="mb-0 fw-semibold">Health Insurance</h6>
+                  <small class="text-muted"
+                    >Comprehensive protection for you & family</small
+                  >
+                </div>
+              </a>
+
+              <!-- Life -->
+              <button
+                class="list-group-item list-group-item-action d-flex align-items-center gap-3"
+                data-bs-toggle="modal"
+                data-bs-target="#notAvailableModal"
+                data-bs-dismiss="modal"
+              >
+                <div class="icon-circle bg-success text-white">
+                  <i class="fas fa-user-shield"></i>
+                </div>
+                <div>
+                  <h6 class="mb-0 fw-semibold">Life Insurance</h6>
+                  <small class="text-muted"
+                    >Secure your family's financial future</small
+                  >
+                </div>
+              </button>
+
+              <!-- Non-life -->
+              <button
+                class="list-group-item list-group-item-action d-flex align-items-center gap-3"
+                data-bs-toggle="modal"
+                data-bs-target="#notAvailableModal"
+                data-bs-dismiss="modal"
+              >
+                <div class="icon-circle bg-warning text-dark">
+                  <i class="fas fa-car"></i>
+                </div>
+                <div>
+                  <h6 class="mb-0 fw-semibold">Non-life Insurance</h6>
+                  <small class="text-muted"
+                    >Protect your vehicles, homes & valuables</small
+                  >
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Not Available Modal -->
+    <div
+      class="modal fade"
+      id="notAvailableModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center shadow-lg">
+          <div class="modal-header border-0">
+            <h5 class="modal-title w-100 text-danger fw-bold">Sorry 😔</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p class="lead">
+              This service is not available right now. Please check back later!
+            </p>
+            <i class="fas fa-hourglass-half fa-3x text-secondary my-3"></i>
+          </div>
+          <div class="modal-footer border-0">
+            <button
+              type="button"
+              class="btn btn-secondary w-100"
+              data-bs-dismiss="modal"
+            >
+              Okay, Got it
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script src="assets/js/homepage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

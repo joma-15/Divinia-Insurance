@@ -393,3 +393,36 @@ body {
   background: rgba(255, 255, 255, 0.25);
 }
 
+.floating-close {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1200;
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  transition: background 0.3s;
+}
+
+.floating-close:hover {
+  background: #bb2d3b;
+}
+
+.icon-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
