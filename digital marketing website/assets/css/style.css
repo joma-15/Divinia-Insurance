@@ -85,7 +85,11 @@ body {
 /* --- Hero Section --- */
 .hero-section {
   padding: 6rem 0 4rem;
-  background: linear-gradient(135deg, #004080, #00aaff); /* Dark blue to cyan gradient */
+  background: linear-gradient(
+    135deg,
+    #004080,
+    #00aaff
+  ); /* Dark blue to cyan gradient */
   color: #ffffff;
   position: relative;
 }
@@ -155,7 +159,7 @@ body {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
-.section-title{
+.section-title {
   font-weight: 700;
   margin-bottom: 1.5rem;
   color: #004080;
@@ -212,10 +216,10 @@ body {
     padding: 0 1rem;
   }
 
-  .drawer{
+  .drawer {
     display: none;
   }
-  .drawer-toggle{
+  .drawer-toggle {
     display: none;
   }
   .hero-section img {
@@ -309,8 +313,12 @@ body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Affiliate Card */
@@ -341,7 +349,7 @@ body {
   height: 90px;
   object-fit: contain;
   margin-bottom: 1rem;
-  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15));
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
   transition: transform 0.3s ease;
 }
 
@@ -354,7 +362,7 @@ body {
   font-weight: 700;
   margin-bottom: 0.6rem;
   color: #ffffff;
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.25);
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.25);
 }
 
 .affiliate-content p {
@@ -408,7 +416,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
   transition: background 0.3s;
 }
 
