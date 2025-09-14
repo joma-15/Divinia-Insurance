@@ -58,3 +58,49 @@ function webLink() {
   });
 }
 webLink();
+
+
+function goToAnotherPage() {
+  let lastClicked = null; // store context: "services" or "tools"
+
+  const servicesBtn = document.querySelectorAll('.services-btn');
+  const toolsBtn = document.querySelectorAll('.tools-btn'); 
+  const healthBtn = document.querySelectorAll('.health-btn');
+
+  // Services buttons
+  servicesBtn.forEach(button => {
+    button.addEventListener('click', () => {
+      console.log('Services button clicked');
+      lastClicked = "services";
+    });
+  });
+
+  // Tools buttons
+  toolsBtn.forEach(button => {
+    button.addEventListener('click', () => {
+      console.log('Tools button clicked');
+      lastClicked = "tools";
+    });
+  });
+
+  // Health Insurance buttons
+  healthBtn.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      if (lastClicked === "services") {
+        console.log("Health → Services page");
+        window.location.href = "shop.html";
+      } else if (lastClicked === "tools") {
+        console.log("Health → Tools page");
+        window.location.href = "tools.html";
+      } else {
+        console.log("Health clicked, but no main button chosen yet");
+        // fallback → maybe do nothing or default redirect
+        
+      }
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', goToAnotherPage);
