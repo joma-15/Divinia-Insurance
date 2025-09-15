@@ -104,3 +104,12 @@ function goToAnotherPage() {
 }
 
 document.addEventListener('DOMContentLoaded', goToAnotherPage);
+
+
+function gotToAffliate(){
+  const button = document.getElementById('affiliate-wrapper'); 
+  button.addEventListener('click', () => {
+    window.location.href = "agentlogin.html"; 
+  });
+}
+gotToAffliate();

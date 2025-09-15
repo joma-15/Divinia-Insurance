@@ -321,6 +321,11 @@ body {
   }
 }
 
+.affiliate-wrapper{
+  position: relative; 
+  pointer-events: auto;
+  z-index: 1;
+}
 /* Affiliate Card */
 .affiliate-card {
   display: block;
@@ -337,6 +342,8 @@ body {
   text-align: center;
   overflow: hidden;
   position: relative;
+  z-index: 2002;
+  pointer-events: auto;
 }
 
 .affiliate-card:hover {
