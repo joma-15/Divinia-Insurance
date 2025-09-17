@@ -321,12 +321,7 @@ body {
   }
 }
 
-.affiliate-wrapper{
-  position: relative; 
-  pointer-events: auto;
-  z-index: 1;
-}
-/* Affiliate Card */
+/* Affiliate Card - Responsive Version */
 .affiliate-card {
   display: block;
   width: 100%;
@@ -342,7 +337,6 @@ body {
   text-align: center;
   overflow: hidden;
   position: relative;
-  z-index: 2002;
   pointer-events: auto;
 }
 
@@ -401,6 +395,7 @@ body {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 50%;
   transition: all 0.3s ease;
+  pointer-events: none;
 }
 
 .affiliate-card:hover::before {
@@ -408,36 +403,70 @@ body {
   background: rgba(255, 255, 255, 0.25);
 }
 
-.floating-close {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1200;
-  background: #dc3545;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-  transition: background 0.3s;
+.affiliate-desktop {
+  display: block;
+}
+.affiliate-mobile {
+  display: none;
 }
 
-.floating-close:hover {
-  background: #bb2d3b;
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  /* Disable hover animations on mobile */
+  .affiliate-card,
+  .affiliate-card::before,
+  .affiliate-card:hover,
+  .affiliate-card:hover .affiliate-img,
+  .affiliate-card:hover .arrow {
+    transform: none !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  /* Adjust width and padding */
+  .affiliate-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.5rem 1rem;
+  }
+
+  /* Scale down images and fonts */
+  .affiliate-content img.affiliate-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .affiliate-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .affiliate-content p {
+    font-size: 0.9rem;
+  }
+
+  .affiliate-content .arrow {
+    font-size: 1.4rem;
+  }
+
+  .affiliate-desktop {
+    display: none;
+  }
+  .affiliate-mobile {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .affiliate-mobile .btn {
+    border-radius: 12px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #004080, #00aaff);
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .affiliate-mobile .btn:hover {
+    background: linear-gradient(135deg, #007aff, #00cfff);
+    box-shadow: 0 6px 18px rgba(0, 122, 255, 0.25);
+  }
 }
 
-.icon-circle {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  flex-shrink: 0;
-}

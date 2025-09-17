@@ -131,6 +131,7 @@
     </section>
 
     <!-- Contact Section -->
+    <!-- Contact Section -->
     <section id="contact" class="section-padding py-5">
       <div class="container">
         <div class="card-custom text-center shadow">
@@ -146,25 +147,34 @@
               <h5><i class="fas fa-envelope"></i> Email</h5>
               <p>divine_segui@yahoo.com</p>
             </div>
+
             <div
               class="col-md-6 d-flex justify-content-center align-items-center"
             >
-            <div id="affiliate-wrapper">
-              <a class="affiliate-card">
-                <div class="affiliate-content">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/3126/3126647.png"
-                    alt="Affiliate Gift"
-                    class="affiliate-img"
-                  />
-                  <h3>🎁 Be an Affiliate</h3>
-                  <p>
-                    Join our affiliate program and unlock exciting rewards while
-                    helping others secure their future.
-                  </p>
-                  <span class="arrow">→</span>
-                </div>
-              </a>
+              <!-- Desktop affiliate card -->
+              <div class="affiliate-desktop">
+                <a class="affiliate-card" id="affiliate" href="agentlogin.html">
+                  <div class="affiliate-content">
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/3126/3126647.png"
+                      alt="Affiliate Gift"
+                      class="affiliate-img"
+                    />
+                    <h3>🎁 Be an Affiliate</h3>
+                    <p>
+                      Join our affiliate program and unlock exciting rewards
+                      while helping others secure their future.
+                    </p>
+                    <span class="arrow">→</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Mobile affiliate button -->
+              <div class="affiliate-mobile w-100" id="mobile-affiliate">
+                <a href="agentlogin.html" class="btn btn-primary btn-lg w-100">
+                  🎁 Be an Affiliate
+                </a>
               </div>
             </div>
           </div>
@@ -314,7 +324,6 @@
       id="insuranceModalMobile"
       tabindex="-1"
       aria-labelledby="insuranceModalLabelMobile"
-      aria-hidden="true"
     >
       <!-- Floating Close -->
       <button

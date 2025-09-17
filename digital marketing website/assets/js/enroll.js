@@ -56,6 +56,7 @@ function extractData() {
     let plan =
       document.querySelector(".card-title")?.innerText.trim() ?? "50K Plan";
     const condition = checkedConditions();
+    const referral = document.getElementById("referredBy").value.trim() || "DIS";
 
     if (
       !lastName ||
@@ -91,6 +92,7 @@ function extractData() {
       condition,
       plan,
       civilStatus,
+      referral,
     };
     //localstorage for persistent data
     localStorage.setItem("data", JSON.stringify(data));
@@ -106,22 +108,6 @@ async function sendIntoExcel(data) {
     "https://docs.google.com/forms/d/e/1FAIpQLScQmnDQfzBud88VDwXSRxZb_Kj3Qeh0WVpCnv297P4I0QkJHg/formResponse";
   const params = new URLSearchParams();
 
-  //map the data to google form fields verify user id 
-  // const formFields = {
-  //   "entry.118683267": localStorage.getItem("selectedPlan"),
-  //   "entry.328719651": data.fullName,
-  //   "entry.1226942228_year": data.birthDate.year,
-  //   "entry.1226942228_month": data.birthDate.month,
-  //   "entry.1226942228_day": data.birthDate.day,
-  //   "entry.1564645568": data.address,
-  //   "entry.1830843199": data.email,
-  //   "entry.113235889": data.gender,
-  //   "entry.1003466199": data.civilStatus,
-  //   "entry.526372370": data.condition,
-  //   "entry.2137808509": data.plan,
-  //   "entry.579757869": "Pending",
-  // };
-
     const formFields = {
     "entry.807207221": localStorage.getItem("selectedPlan"),
     "entry.1368872495": data.fullName,
@@ -135,7 +121,7 @@ async function sendIntoExcel(data) {
     "entry.277015241_month": data.birthDate.month,
     "entry.277015241_day": data.birthDate.day,
     "entry.597664781": "Pending",
-    "entry.118563215": "tiyo dado",
+    "entry.118563215": data.referral,
   };
 
   for (const [key, value] of Object.entries(formFields)) {

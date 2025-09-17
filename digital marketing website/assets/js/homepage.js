@@ -100,9 +100,14 @@ document.addEventListener('DOMContentLoaded', goToAnotherPage);
 
 
 function gotToAffliate(){
-  const button = document.getElementById('affiliate-wrapper'); 
+  const button = document.getElementById('affiliate'); 
   button.addEventListener('click', () => {
     window.location.href = "agentlogin.html"; 
+  });
+
+  const mobilebutton = document.getElementById("mobile-affiliate"); 
+  mobilebutton.addEventListener('click', () => {
+    window.location.href = "agentlogin.html";
   });
 }
 gotToAffliate();
