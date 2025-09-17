@@ -10,13 +10,6 @@ function handleDrawer() {
 handleDrawer();
 
 function handlePreloader() {
-  // Preloader fade-out after 3 seconds
-  // window.addEventListener("load", function(){
-  //   setTimeout(function(){
-  //     document.getElementById("preloader").classList.add("fade-out");
-  //   }, 1000);
-  // });
-
   const preloader = document.getElementById("preloader");
 
   if (!sessionStorage.getItem("preloaderShown")) {

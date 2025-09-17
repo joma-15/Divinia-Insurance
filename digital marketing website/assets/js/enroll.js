@@ -102,23 +102,40 @@ document.addEventListener("DOMContentLoaded", extractData);
 
 async function sendIntoExcel(data) {
   const formUrl =
-    "https://docs.google.com/forms/d/e/1FAIpQLScVcBDaGA9Rj93kd6K0GzDkm9ymkbz-rLjOKpFqE6DAzdKE1w/formResponse";
+    // "https://docs.google.com/forms/d/e/1FAIpQLScVcBDaGA9Rj93kd6K0GzDkm9ymkbz-rLjOKpFqE6DAzdKE1w/formResponse";
+    "https://docs.google.com/forms/d/e/1FAIpQLScQmnDQfzBud88VDwXSRxZb_Kj3Qeh0WVpCnv297P4I0QkJHg/formResponse";
   const params = new URLSearchParams();
 
   //map the data to google form fields verify user id 
-  const formFields = {
-    "entry.118683267": localStorage.getItem("selectedPlan"),
-    "entry.328719651": data.fullName,
-    "entry.1226942228_year": data.birthDate.year,
-    "entry.1226942228_month": data.birthDate.month,
-    "entry.1226942228_day": data.birthDate.day,
-    "entry.1564645568": data.address,
-    "entry.1830843199": data.email,
-    "entry.113235889": data.gender,
-    "entry.1003466199": data.civilStatus,
-    "entry.526372370": data.condition,
-    "entry.2137808509": data.plan,
-    "entry.579757869": "Pending",
+  // const formFields = {
+  //   "entry.118683267": localStorage.getItem("selectedPlan"),
+  //   "entry.328719651": data.fullName,
+  //   "entry.1226942228_year": data.birthDate.year,
+  //   "entry.1226942228_month": data.birthDate.month,
+  //   "entry.1226942228_day": data.birthDate.day,
+  //   "entry.1564645568": data.address,
+  //   "entry.1830843199": data.email,
+  //   "entry.113235889": data.gender,
+  //   "entry.1003466199": data.civilStatus,
+  //   "entry.526372370": data.condition,
+  //   "entry.2137808509": data.plan,
+  //   "entry.579757869": "Pending",
+  // };
+
+    const formFields = {
+    "entry.807207221": localStorage.getItem("selectedPlan"),
+    "entry.1368872495": data.fullName,
+    "entry.265391803": data.address,
+    "entry.21286280": data.email,
+    "entry.914829469": data.gender,
+    "entry.1102795712": data.civilStatus,
+    "entry.962982325": data.condition,
+    "entry.354268935": data.plan,
+    "entry.277015241_year": data.birthDate.year,
+    "entry.277015241_month": data.birthDate.month,
+    "entry.277015241_day": data.birthDate.day,
+    "entry.597664781": "Pending",
+    "entry.118563215": "tiyo dado",
   };
 
   for (const [key, value] of Object.entries(formFields)) {
