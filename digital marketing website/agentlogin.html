@@ -45,9 +45,31 @@
     .modal-footer {
       border-top: none;
     }
+    /* Back Button */
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #fff;
+      color: #6c63ff;
+      font-weight: bold;
+      border-radius: 30px;
+      padding: 8px 20px;
+      border: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1055;
+      transition: 0.3s;
+    }
+    .back-btn:hover {
+      background-color: #6c63ff;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Back Button -->
+  <button class="back-btn" onclick="history.back()">← Back</button>
 
   <!-- Hero Section -->
   <section class="hero">
