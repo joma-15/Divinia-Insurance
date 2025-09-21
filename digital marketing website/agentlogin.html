@@ -17,6 +17,7 @@
       justify-content: center;
       color: #fff;
       text-align: center;
+      padding: 20px;
     }
     .hero h1 {
       font-size: 3rem;
@@ -32,20 +33,33 @@
       color: #6c63ff;
       font-weight: bold;
       border-radius: 50px;
-      padding: 10px 30px;
+      padding: 12px 35px;
       transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     .btn-custom:hover {
       background-color: #6c63ff;
       color: #fff;
+      transform: translateY(-2px);
+    }
+    .modal-content {
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
     .modal-header {
       border-bottom: none;
+      background: linear-gradient(135deg, #6c63ff, #00d4ff);
+      color: #fff;
+      border-radius: 20px 20px 0 0;
     }
     .modal-footer {
       border-top: none;
+      text-align: center;
     }
-    /* Back Button */
+    .form-control {
+      border-radius: 12px;
+      padding: 12px;
+    }
     .back-btn {
       position: fixed;
       top: 20px;
@@ -63,6 +77,11 @@
     .back-btn:hover {
       background-color: #6c63ff;
       color: #fff;
+    }
+    .referral-note {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 5px;
     }
   </style>
 </head>
@@ -87,27 +106,61 @@
       <div class="modal-content rounded-4">
         <div class="modal-header">
           <h5 class="modal-title" id="registerModalLabel">Register</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form>
+            <!-- Full Name -->
             <div class="mb-3">
               <label for="regName" class="form-label">Full Name</label>
               <input type="text" class="form-control" id="regName" placeholder="John Doe">
             </div>
+
+            <!-- Username -->
+            <div class="mb-3">
+              <label for="regUsername" class="form-label">Username</label>
+              <input type="text" class="form-control" id="regUsername" placeholder="johndoe123">
+            </div>
+
+            <!-- Email -->
             <div class="mb-3">
               <label for="regEmail" class="form-label">Email address</label>
               <input type="email" class="form-control" id="regEmail" placeholder="name@example.com">
             </div>
+
+            <!-- Password -->
             <div class="mb-3">
               <label for="regPassword" class="form-label">Password</label>
               <input type="password" class="form-control" id="regPassword" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+
+            <!-- Confirm Password -->
+            <div class="mb-3">
+              <label for="regConfirmPassword" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="regConfirmPassword" placeholder="Re-enter Password">
+            </div>
+
+            <!-- Referral Code with Generate Button -->
+            <div class="mb-3">
+              <label for="regReferral" class="form-label">Referral Code</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="regReferral" readonly>
+                <button type="button" class="btn btn-outline-primary" onclick="generateReferral()">Generate Code</button>
+              </div>
+              <div class="referral-note">
+                💡 Click "Generate Code" to create your unique referral code.  
+                Copy and share this code with others to earn commission!
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100" id="submit">Sign Up</button>
           </form>
         </div>
         <div class="modal-footer text-center">
-          <p class="mb-0">Already have an account? <a href="#" data-bs-target="#loginModal" data-bs-toggle="modal" data-bs-dismiss="modal">Login</a></p>
+          <p class="mb-0">Already have an account? 
+            <a href="#" data-bs-target="#loginModal" data-bs-toggle="modal" data-bs-dismiss="modal">Login</a>
+          </p>
         </div>
       </div>
     </div>
@@ -119,7 +172,7 @@
       <div class="modal-content rounded-4">
         <div class="modal-header">
           <h5 class="modal-title" id="loginModalLabel">Login</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form>
@@ -135,12 +188,32 @@
           </form>
         </div>
         <div class="modal-footer text-center">
-          <p class="mb-0">Don't have an account? <a href="#" data-bs-target="#registerModal" data-bs-toggle="modal" data-bs-dismiss="modal">Register</a></p>
+          <p class="mb-0">Don't have an account? 
+            <a href="#" data-bs-target="#registerModal" data-bs-toggle="modal" data-bs-dismiss="modal">Register</a>
+          </p>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Script to generate referral code on button click -->
+  <script>
+    function generateReferralCode() {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let code = 'AFF-';
+      for (let i = 0; i < 6; i++) {
+        code += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return code;
+    }
+
+    function generateReferral() {
+      document.getElementById('regReferral').value = generateReferralCode();
+    }
+  </script>
+  <script src="assets/js/agentlogin.js"></script>
 </body>
 </html>
