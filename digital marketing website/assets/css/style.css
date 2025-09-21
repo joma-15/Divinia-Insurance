@@ -85,11 +85,7 @@ body {
 /* --- Hero Section --- */
 .hero-section {
   padding: 6rem 0 4rem;
-  background: linear-gradient(
-    135deg,
-    #004080,
-    #00aaff
-  ); /* Dark blue to cyan gradient */
+  background: linear-gradient(135deg, #004080, #00aaff); /* Dark blue to cyan gradient */
   color: #ffffff;
   position: relative;
 }
@@ -216,10 +212,10 @@ body {
     padding: 0 1rem;
   }
 
-  .drawer {
+  .drawer{
     display: none;
   }
-  .drawer-toggle {
+  .drawer-toggle{
     display: none;
   }
   .hero-section img {
@@ -313,15 +309,11 @@ body {
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Affiliate Card - Responsive Version */
+/* Affiliate Card */
 .affiliate-card {
   display: block;
   width: 100%;
@@ -337,7 +329,6 @@ body {
   text-align: center;
   overflow: hidden;
   position: relative;
-  pointer-events: auto;
 }
 
 .affiliate-card:hover {
@@ -350,7 +341,7 @@ body {
   height: 90px;
   object-fit: contain;
   margin-bottom: 1rem;
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15));
   transition: transform 0.3s ease;
 }
 
@@ -363,7 +354,7 @@ body {
   font-weight: 700;
   margin-bottom: 0.6rem;
   color: #ffffff;
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.25);
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.25);
 }
 
 .affiliate-content p {
@@ -395,78 +386,10 @@ body {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 50%;
   transition: all 0.3s ease;
-  pointer-events: none;
 }
 
 .affiliate-card:hover::before {
   transform: scale(1.2);
   background: rgba(255, 255, 255, 0.25);
-}
-
-.affiliate-desktop {
-  display: block;
-}
-.affiliate-mobile {
-  display: none;
-}
-
-/* Mobile Responsive Adjustments */
-@media (max-width: 768px) {
-  /* Disable hover animations on mobile */
-  .affiliate-card,
-  .affiliate-card::before,
-  .affiliate-card:hover,
-  .affiliate-card:hover .affiliate-img,
-  .affiliate-card:hover .arrow {
-    transform: none !important;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12) !important;
-  }
-
-  /* Adjust width and padding */
-  .affiliate-card {
-    width: 100%;
-    max-width: 100%;
-    padding: 1.5rem 1rem;
-  }
-
-  /* Scale down images and fonts */
-  .affiliate-content img.affiliate-img {
-    width: 70px;
-    height: 70px;
-  }
-
-  .affiliate-content h3 {
-    font-size: 1.5rem;
-  }
-
-  .affiliate-content p {
-    font-size: 0.9rem;
-  }
-
-  .affiliate-content .arrow {
-    font-size: 1.4rem;
-  }
-
-  .affiliate-desktop {
-    display: none;
-  }
-  .affiliate-mobile {
-    display: block;
-    margin-top: 1rem;
-  }
-
-  .affiliate-mobile .btn {
-    border-radius: 12px;
-    font-weight: 600;
-    background: linear-gradient(135deg, #004080, #00aaff);
-    border: none;
-    padding: 1rem;
-    font-size: 1.1rem;
-  }
-
-  .affiliate-mobile .btn:hover {
-    background: linear-gradient(135deg, #007aff, #00cfff);
-    box-shadow: 0 6px 18px rgba(0, 122, 255, 0.25);
-  }
 }
 
