@@ -3,7 +3,7 @@ function sendRegisterData() {
 
   button.addEventListener("click", function (event) {
     event.preventDefault();
-    console.log('the button was being triggered');
+    console.log("the button was being triggered");
 
     // 1️⃣ Get form input values
     const fullname = document.getElementById("regName").value.trim();
@@ -32,7 +32,8 @@ function sendRegisterData() {
       }
 
       // 4️⃣ Submit to Google Form if no duplicates
-      const formUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSf4ILyBKJDLi1yHBwwQ8ZLbXYNgSmx9prgi-tqdRrvxSyn_mQ/formResponse";
+      const formUrl =
+        "https://docs.google.com/forms/u/0/d/e/1FAIpQLSf4ILyBKJDLi1yHBwwQ8ZLbXYNgSmx9prgi-tqdRrvxSyn_mQ/formResponse";
 
       const params = new URLSearchParams();
       params.append("entry.1669826201", fullname);
@@ -68,36 +69,44 @@ function sendRegisterData() {
   });
 }
 
+async function loginUser(){
+  const username = document.getElementById("logUsername").value.trim(); 
+  const password  = document.getElementById("logPassword").value.trim();
+
+  try {
+    const response = await
+  } catch (error) {
+    
+  }
+}
+
 // Initialize on page load
 document.addEventListener("DOMContentLoaded", sendRegisterData);
 
+async function DisplayUserData(code) {
+  const url = `https://script.google.com/macros/s/AKfycbwXtZDcI2_V0aXn9o2dKhPvpk6S2jvRgZkL9m55gDYr-RZzIedgbT_3dbnFySCzFljgSQ/exec?logReferral=DIS
+`;
+  const agentName = "Agent"; // You can fetch this dynamically
+  try {
+    const response = await fetch(url);
+    const clients = await response.json();
 
-function DisplayUserData(){
-  const agentName = "John Marcel"; // You can fetch this dynamically
-    const clients = [
-      { name: "John Doe", plan: "Premium", type: "VIP" },
-      { name: "Jane Smith", plan: "Basic", type: "Regular" },
-      { name: "Alex Carter", plan: "Enterprise", type: "Corporate" },
-      { name: "Naruto Uzumaki", plan: "Basic", type: "Trial" },
-      { name: "Hinata Hyuga", plan: "Premium", type: "VIP" },
-      { name: "Sasuke Uchiha", plan: "Enterprise", type: "Corporate" },
-      { name: "Sakura Haruno", plan: "Basic", type: "Regular" },
-      { name: "Kakashi Hatake", plan: "Premium", type: "VIP" },
-      { name: "Rock Lee", plan: "Basic", type: "Trial" },
-      { name: "Shikamaru Nara", plan: "Enterprise", type: "Corporate" },
-      { name: "Gaara", plan: "Premium", type: "VIP" },
-    ];
+    document.getElementById(
+      "welcomeMessage"
+    ).textContent = `Welcome, ${agentName}`;
 
-    document.getElementById('welcomeMessage').textContent = `Welcome, ${agentName}`;
+    const tbody = document.querySelector("#clientsTable tbody");
+    const totalClients = document.getElementById("totalClients");
 
-    const tbody = document.querySelector('#clientsTable tbody');
-    const totalClients = document.getElementById('totalClients');
-
-    clients.forEach(client => {
-      const row = document.createElement('tr');
-      row.innerHTML = `<td>${client.name}</td><td>${client.plan}</td><td>${client.type}</td>`;
+    clients.forEach((client) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `<td>${client.username}</td><td>${client.selected_plan}</td><td>${client.type}</td>`;
       tbody.appendChild(row);
     });
 
     totalClients.textContent = clients.length;
+  } catch (error) {
+    console.error("an error occured ", error);
+  }
 }
+document.addEventListener('DOMContentLoaded', DisplayUserData);
