@@ -99,6 +99,7 @@ async function loginUser(username, password) {
 
     // ✅ Store data in localStorage
     localStorage.setItem("referral", data.extraData);
+    localStorage.setItem("username", username);
 
     console.log("📦 Stored referral:", data.extraData);
 
@@ -137,7 +138,7 @@ if (loginbutton) {
 async function DisplayUserData() {
   const referral = localStorage.getItem("referral");
   const url = `https://script.google.com/macros/s/AKfycbwXtZDcI2_V0aXn9o2dKhPvpk6S2jvRgZkL9m55gDYr-RZzIedgbT_3dbnFySCzFljgSQ/exec?logReferral=${encodeURIComponent(referral)}`;
-  const agentName = "Agent"; // You can fetch this dynamically
+  const agentName = localStorage.getItem("username") ?? "Agent"; // You can fetch this dynamically
   try {
     const response = await fetch(url);
     const clients = await response.json();
