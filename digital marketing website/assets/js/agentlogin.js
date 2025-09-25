@@ -9,12 +9,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const fullname = document.getElementById("regName").value.trim();
     const username = document.getElementById("regUsername").value.trim();
     const password = document.getElementById("regPassword").value.trim();
+    const confirmPass = document
+      .getElementById("regConfirmPassword")
+      .value.trim();
     const referral = document.getElementById("regReferral").value.trim();
+    const form = document.getElementById("registerForm");
+
+    if (password != confirmPass) {
+      alert("Passwords must be the same");
+      form.reset();
+      return;
+    }
 
     if (!fullname || !username || !password || !referral) {
       alert("⚠️ Please fill in all fields.");
       return;
     }
+
+    // Prepare loading modal reference (but don't show it yet)
+    const loading = document.getElementById("loadingPopup");
+    let startTime; // declare here so finally can access it
 
     // 2️⃣ Generate a unique JSONP callback name
     const callbackName = "jsonpCallback_" + Date.now();
@@ -41,6 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
       params.append("entry.1025155675", password);
       params.append("entry.2067985687", referral);
 
+      startTime = Date.now();
+      loading.style.display = "block"; // Show popup
+
       fetch(formUrl, {
         method: "POST",
         mode: "no-cors", // Google Forms needs this
@@ -59,6 +76,14 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch((error) => {
           console.error("Submission error:", error);
           alert("⚠️ An error occurred while sending the data.");
+        })
+        .finally(() => {
+            // ✅ Ensure popup stays for at least 500ms to avoid flicker
+            const elapsed = Date.now() - startTime;
+            const remaining = Math.max(0, 500 - elapsed);
+            setTimeout(() => {
+              loading.style.display = "none"; // Hide popup
+            }, remaining);
         });
     };
 
@@ -72,6 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function loginUser(username, password) {
+  const loading = document.getElementById("loadingPopup");
+  const startTime = Date.now();
+  loading.style.display = "block"; // Show popup
   try {
     const url = `https://script.google.com/macros/s/AKfycbzB9F4g68ZKkWnEN1wXA4BBTFXztXssO-VwK3YH87vPlUK7piQkcQwJd58-TtpwRhCn/exec?action=isAccountValid&username=${encodeURIComponent(
       username
@@ -114,6 +142,13 @@ async function loginUser(username, password) {
     );
     // alert("Something went wrong. Please try again later.");
     return null;
+  } finally {
+    // ✅ Ensure popup stays for at least 500ms to avoid flicker
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.max(0, 500 - elapsed);
+    setTimeout(() => {
+      loading.style.display = "none"; // Hide popup
+    }, remaining);
   }
 }
 
@@ -136,8 +171,14 @@ if (loginbutton) {
 }
 
 async function DisplayUserData() {
+  const loading = document.getElementById("loadingPopup");
+  const startTime = Date.now();
+  loading.style.display = "block"; // Show popup
+
   const referral = localStorage.getItem("referral");
-  const url = `https://script.google.com/macros/s/AKfycbwXtZDcI2_V0aXn9o2dKhPvpk6S2jvRgZkL9m55gDYr-RZzIedgbT_3dbnFySCzFljgSQ/exec?logReferral=${encodeURIComponent(referral)}`;
+  const url = `https://script.google.com/macros/s/AKfycbwXtZDcI2_V0aXn9o2dKhPvpk6S2jvRgZkL9m55gDYr-RZzIedgbT_3dbnFySCzFljgSQ/exec?logReferral=${encodeURIComponent(
+    referral
+  )}`;
   const agentName = localStorage.getItem("username") ?? "Agent"; // You can fetch this dynamically
   try {
     const response = await fetch(url);
@@ -159,6 +200,13 @@ async function DisplayUserData() {
     totalClients.textContent = clients.length;
   } catch (error) {
     console.error("an error occured ", error);
+  } finally {
+    // ✅ Ensure popup stays for at least 500ms to avoid flicker
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.max(0, 500 - elapsed);
+    setTimeout(() => {
+      loading.style.display = "none"; // Hide popup
+    }, remaining);
   }
 }
 console.log("before calling user data");
