@@ -9,8 +9,11 @@ function PlanChoose() {
       'input[name="planType"]:checked'
     ).value;
 
-    // save it in localStorage
-    localStorage.setItem("planType", selectedPlan);
+    if (!selectedPlan) {
+      alert("please select a plan");
+    }
+    console.log(selectedPlan);
+    localStorage.setItem("PlanType", selectedPlan);
 
     if (localStorage.getItem("planType")) {
       window.location.href = "Plans.html";
@@ -18,7 +21,6 @@ function PlanChoose() {
   });
 }
 document.addEventListener("DOMContentLoaded", PlanChoose);
-
 
 //check if the user have condition
 function checkedConditions() {
@@ -33,7 +35,6 @@ function checkedConditions() {
   }
   return "No Condition";
 }
-
 
 //extract user information from the modal
 function extractData() {
@@ -56,7 +57,8 @@ function extractData() {
     let plan =
       document.querySelector(".card-title")?.innerText.trim() ?? "50K Plan";
     const condition = checkedConditions();
-    const referral = document.getElementById("referredBy").value.trim() || "DIS";
+    const referral =
+      document.getElementById("referredBy").value.trim() || "DIS";
 
     if (
       !lastName ||
@@ -101,15 +103,14 @@ function extractData() {
 }
 document.addEventListener("DOMContentLoaded", extractData);
 
-
 async function sendIntoExcel(data) {
   const formUrl =
     // "https://docs.google.com/forms/d/e/1FAIpQLScVcBDaGA9Rj93kd6K0GzDkm9ymkbz-rLjOKpFqE6DAzdKE1w/formResponse";
     "https://docs.google.com/forms/d/e/1FAIpQLScQmnDQfzBud88VDwXSRxZb_Kj3Qeh0WVpCnv297P4I0QkJHg/formResponse";
   const params = new URLSearchParams();
 
-    const formFields = {
-    "entry.807207221": localStorage.getItem("selectedPlan"),
+  const formFields = {
+    "entry.807207221": localStorage.getItem("PlanType") || "no selected plan",
     "entry.1368872495": data.fullName,
     "entry.265391803": data.address,
     "entry.21286280": data.email,
@@ -143,13 +144,12 @@ async function sendIntoExcel(data) {
   }
 }
 
-
 //send the data to the database and gmail
 async function sendData() {
   const btn = document.getElementById("gmail");
 
   btn.addEventListener("click", async () => {
-    const data = JSON.parse(localStorage.getItem('data'));
+    const data = JSON.parse(localStorage.getItem("data"));
     console.log("the fuckin function is being triggered");
 
     if (!data) {
